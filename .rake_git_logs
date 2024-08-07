@@ -1,0 +1,1822 @@
+de564de Initial revision
+de2ea9b added build directory
+e34dc1d Changed documentation to reflect the move to RubyForge.
+7fad715 Added display tasks to the todo list.
+92862eb added require of test/filecreation.
+002b3bd Had to add explicit links to the README file.  RDoc used to pick those up automatically.  I guess it does not do that any more.
+3e06a86 Added a publish_doc_to_rubyforge target.
+11e52fd desc/-T/-P added.
+5e7f96b Added "desc" descriptions to the rakefile
+c7142c9 Marked display dependecies/tasks as done.
+068cc38 Added "desc" descriptions to the rakefile.
+a38dfcc Added support for "desc" comments. Added support for -P and -T.
+4ee53f0 Fixed version command to pick up development rev, not the installed rev. Switched to a RubyForgePublisher
+4d6ad47 Updated blurb with latest doc/download locations.
+8e4dae2 AppBuilder revision command now accepts non-numeric version suffix. Added some more desc comments.
+e627e3b New version 0.2.7a.
+67c2905 added new options to docs
+4766000 Make RubyForgePublisher a subclass of SshDirPublisher. Using new publisher interface.
+c57a66e Extensively reworked the publisher class so that it handles a smaller job and uses a composite publisher to build more complex publishing operations.
+a5e9070 New Version Number
+e1dbfbe Changed CLEAN and CLOBBER to use file lists (not file matchers).
+5327547 Added "add" function.  Arrays and single file names are acceptable.
+4f05169 New tests for added FileList functionality. Added tests for multiple patterns, reject! and uniq!.
+1bd831f Started the splitup of rubyapp into smaller, reusable components (e.g. testtask, packagetask) Added a PackageTask Added test task. Added a contrib test.
+7cd8872 Added code in installer to create directories.
+1e2d7aa Now using fileutils rather than Sys module. Switched to FileList from FileMatcher. Moved package creation to its own module.
+90402a2 Added initialization of globals to avoid warnings. Cleaned up trace messages. Extensively reworked RakeTools.  Now using FileUtils with a few local additions. Created a dynamically verbose/noop impl of FileUtils.
+a6ec75f Now using FileList instead of FileMatcher
+f155507 Add now handles patterns as a special case. Add_matching is now private.
+1633c3d Removed assert_not_nil.
+b096afb Made add_matching private.  +add+ is now the preferred way of adding files and glob patterns.
+5d9a9c3 Added fake date for testing listing formats.
+908b637 added new files
+a3b97a9 permanently removed filematcher.
+96fa4e4 removed testtask.rb (renamed to testtesttask.rb)
+5e6bbac removed test for filematcher.
+7d29921 Removed Sys from split_all call. Changed FileTask.define to a direct call to file .....
+b82bad5 Added positive assertion that add returns self. Make sure the test files are created before testing multiple patterns.
+084e3d4 Removed test for Task["pkg"] ... not needed.
+526ffb0 Make sure test data does not disrupt TestDirectoryTask.
+0e19d6e removed testsys
+8a0087f added publish.rf
+8bd21da Broke rubyapp into smaller pieces.
+22b1235 Removing functionality from rubyapp.rb.
+ddeedf0 added defined? as a Task class method.
+931d68f Changed clean tags to clobber (more consistent nomenclature) Automatically tie the clobber tag to the main clobber.
+b6d9a82 Changed clean tag test to check clobber tag.
+bb10272 Added test for Task.defined?
+3c2f83c removed build/rubyapp
+8934145 make contrib_test of sys work
+f0ab8cc updated.
+47fb00b Added comments. Changed task modules to use the initialization definition technique.
+34a5217 Prettied up trace mode. defined? => task_defined? Removed remnants of the Sys module. Switched RakeUtils flags to globals. Added yield mode to verbose and nowrite.
+8e1ed03 Added need_jar/zip to package task module.
+cbb51a8 initialize ends with define.
+2f793b4 Made test quiet.
+dc7eaab Removed old tests (were commented out). Added tests for verbose/nowrite.
+fdb6d32 defined? => task_defined? Make tests more quiet. Removed remaining Sys reference.
+2337d2a require clean was missing in the main Rakefile ... how could that be?
+bc20738 Added comments to the clean/clobber tasks.
+7f88936 define returns self.
+b2c320e sh was spelled run in the OPT_TABLE
+58f3283 added zip to archive
+5dadddd Changed name of license file to MIT-LICENSE.
+686d615 Added RubyGem support. Changed package target to also build a ruby gem. Added line counter. Added archive target.
+b0593ac Updated to version 0.2.9. Default to verobse = true. Added when_writing. Moved FileList to main file.
+fd2693b added gemspec to package task library.
+80776cc Changed from run to sh.
+227036d updated tests. added tests for exclude added sub support.
+14d757d package now built in constructor.
+2d6c1bf removed references to file filelist.rb
+0a5d4ac updated docs and comments.  getting ready for 0.3.0
+729ce56 minor changes
+0ddbd5f fixed comments on "nowrite"
+2dada84 updated doc for rdoc task lib
+c65dccd Switched to css2 template (for now) using include/exclude Experimenting with "nolines" target (temporary)
+fcef94f Added yield self idiom to FileList.new Renamed add to include Add is still an alias. Dropped exclude! (normal exclude modifies the array). Switched from collect to inject in sub and gsub to get a FileList return.
+30e0480 Switched to include.
+2b21d1f Make rubygems required for packagetask. Broke PackageTask into SimplePackageTask and GemPackageTask. Added "init" to avoid the auto-define problem in inheriting from SimplePackageTask. Explicit :noversion now required.
+1ed436c RDocTask now clonable. No default for main. Title option added. Fixed rerdoc to use clobber instead of clean. Options are now handled properly.
+56b1d7e TestTask are now clonable.
+634ff2c Removed obsolete filelist require. Switch to include from add.
+e88671e Switched to SimplePackageTask. Switched to include from add. Added version missing test. Added no version test. Added clone test. Added gem test test.
+63f39cc added tasklib file.
+44b8aab Updated TODO list.
+c2147ba Moved RubyGem dependent stuff to gempackagetask.rb.
+ba5e0a1 Renamed SimplePackagetask back to PackageTask. Make gempackagetask.rb check for RubyGems.
+40ccfa2 Make RubyGems optional, but wont build packages without it.
+2dd181d added gempackagetask.rb
+3f4746d Check the width of only those tasks that are shown.
+8e5207b Removed temporary "nolines" target.
+1057ada Mentioned the "yield self" technique for new file lists. Added comments to [] method.
+8362f33 Fixed title.
+fc0aa61 Added section on comments.
+e3189cf Added some docs for creating packages with gem specs.
+4718123 Removed references to gem in comments and code. Define is only called if name is non-nil.
+778a099 Moved paste to parent class.
+de34881 Added paste.
+8666788 Added explicit :noversion for test.
+2e26735 Run rake with -w by default.
+0a63533 renamed testtesttask to testtasks.
+6168f47 *** empty log message ***
+f3e4f98 Upped version to 0.2.10 (we have already released .9) Reworded the limitation on glob patterns Oops, example used reject instead of exclude.
+ddebc8e Completed comments in gempackagetask.rb.
+80138ee Added if need_tar/zip comments.
+7219b6a Updated changes.
+5649f91 Updated Gem Package Generation.
+04b90b3 updated todo list.
+8681596 updated version.
+063cf81 Changed name to an accessor. Changed package_files to accessor.
+2e1f280 require correct gempackagetask.rb
+8a70938 added publish.rf to CVS
+91ac08e Minor change.
+1054574 Added description of publish.
+9b8f089 Added require rake/contrib/sshpublisher
+ed9f893 fixed unterminated string
+904a889 Started version 0.3.1. Added ignore? test to to add_matching. Added ignore pattern support.
+6b0441e Added tests for auto-ignore support.
+0c88263 fixed gem building
+a5fde14 Added instructions for installing from a GEM.
+8d6cebf Modified with work as a GEM.
+0ad590b added script to install the bin command
+fa087f8 Updated GEM install instructions.
+c3501cc Added gem_install_bin.rb to package list. No longer need to reject CVS and backup files.
+9d7b015 Clean needs to build the clean list without ignore backups.
+411ecde Updated changes.
+01e6454 Autodetect whether we are running as a gem to setup the requirements right.
+4021750 Rdoc  and :noversion patches from Gavin Sinclair.
+bfb59a8 Replace Sys with file utils.
+b461240 Lines task now counts all source files.
+139c893 Fixed examples to not use Sys.run. Deprecated Sys.run for sh
+6d0b6cf cleaned up some comments.
+5bcb81c Added option_list and option_string methods.
+a64d41e added parens in the advanced rule section
+212752c fixed install comment in README
+9ec4874 Added new version comments.
+44fa75b Updated the gem spec to use almost all the options.
+c7f28fd Updated version.
+1fbc9ee updated version
+2941164 Removed Sys from examples
+03c9a94 Started changes for 0.3.2.x.
+0d4f26c Added 2004 to copyright.
+7c602e0 Update mail address. Updated mail address, required ruby version, and copyright year.
+77a0ad2 Added 2004 to copyright. Make test of rubygems packaging optional.
+05bfb9f Updated mail address.
+2de60be Added 2004 to copyright notice. Set verion to 0.3.2.1
+a2b4e95 Added assertions file to handle errors.
+f74473d Added 2004 to copyright notice.
+f14266a Make testing gem packaging optional.
+2e4211b Added docs for NAME=VALUE option.
+6c1937c NAME=VALUE option added.
+9fe098d Added support for TESTNAME in test task.
+f0d0ac2 Added require rake in test
+2772e03 removed gem_install_bin.rb file ... gems automatically handle this now
+086719b changed to TESTFILE
+a94b20c Changed the Rakefile to run the test raw (i.e. without the test task). The test task loaded the installed version of rake for testing.  We need the local version. Removed gem_install_bin.rb from the package list.  (We do not need it. YEAH)
+a403d56 Uped the version.
+49a15ad Added some basic array function tests to file list testing.
+256981f Redefine Array specific methods in FileList to do a resolve before their typical definition.  Include "to_a" in that list of methods. Added Pending information to FileList. Rework include to add filenames and patterns to a pending array. Add resolve method to do the delayed building of the list.
+be6103e Add explicit resolve before comparing for equal in serveral test cases.
+77af141 Added explicit resolve.
+3cd17e4 Updated Rakefile to support rdoc file lists and options.
+b38a5a0 New Version. Reworked exclude files to be instance based.
+5de8ddc Modified to use instance based exclude lists.
+bac3e47 New tests for instance based exclude.
+a9fb03d Fixed mtime call.
+6811fe5 Fixed test for add_default_exclude to the new include/exclude paradigm.
+5a7133f version now 0.3.2.4
+6ccbd18 updated todo
+f521baa Added comments to test task. Created a test_fun task. Renamed test_contrib to contrib_test. Added functional tests to list of all tests. Added --main option to rdoc generation.
+c335fae New Version 0.4.0 Renamed trace_flags to format_trace_flags. Moved task collection (and environment loading) to before Rakefile loading. Refactored the run command to break out namable tasks. Now aborts will exit with status = 1.
+1bd9021 added functional tests
+12cc965 pre-tag commit
+19b4661 pre-tag commit
+a569398 Task comments are now additive (with /).
+9a8c13f additional functional test for additive descriptions.
+d38674d Added todo regarding -w mode.
+e27d526 uped version
+1cd1440 Added Gem.manage_gems
+1eb8033 pre-tag commit
+4649238 removed temporary examples files from package spec
+f5e2e27 Use manage_gems if it is available.  Otherwise, just continue.
+7571423 added to todo list.  Fixed homepage ref in gemspec
+bf01705 Added safe_ln to rake based FileUtils.
+621451e Use safe_ln to build package.
+c8dcef4 Updated Changes
+01577b6 upped version to 0.4.2
+a09c8d6 Do not leak comments.
+8d56588 Added function test to detect comment leakage.
+318623a Added task to detect leakage.
+aefd73f upped version number
+4e6e051 updated changelog
+9b9204a Changed test tasks back to using the rake provided task macros. Renamed some tasks and added abbreviations.
+2a4c30f Directory command now creates file tasks in reverse order from previous versions.  This prevents comments from being misapplied.
+9b6795d Rake Test Tasks now use the multiple -r trick, removing the need for a rake runtime presence during testing.
+5985576 Create directory in create_file if it does not exist.
+4184368 Put all mkdirs/touchs under a verbose=false block.
+7cd7830 Added tests to make sure the comment was correctly applied to directory tasks.
+bf4685d initialize comment
+e85c521 updated CHANGES
+1c46548 Switched to file list in test definition.
+f2a6606 Now version 0.4.3.2
+0f28752 Added test_files= to test tasks.
+6305ff7 added tests for testtask
+505bdab upped version to 0.4.4
+ebda7af added comments to test task.
+e8c0015 upgraded comments in testtask
+f4d88b9 *** empty log message ***
+4d621e3 Rename variable methods to method_list to avoid collision with the method of the same name. Added inspect to list of wrapped methods. Wrapped methods have prettier names. Make sure that exclude returns a file list. Added resolution to to_s.
+96c0530 Gem bulder is now verbose.
+29e7f8e Added options to test suite. Cleaned up option calculation.
+db7baee Added test for exclude return. Added test for exclude return on create. Added test for correct pending handling in to_s and inspect.
+76f3544 renamed file_list in test.
+b5e8318 upped version
+6b11c23 fixed unit test crosstalk problem with test files
+6447e40 version change for 0.4.6
+a77debd final changes for 0.4.6
+49a21e9 New version comments.
+6c0cddd Up the version. Add methods to the rewrite list only if they are not already there.
+9a6c0c3 added to_s to the method rewrite list of FileList
+5e0727d Fixed compatibility problem with FileList and Ruby 1.9.
+cc072ea Fixed gem instructions in README.
+8abdd64 Added support for .rb versions of Rakefile.
+1d7316b some windows fixes.
+a266553 pre version 0.4.8 changes.
+e70702f added Jamis Buck's rdoc format
+df4c7a2 Remoted autorequire from rake gem spec.
+f6c3827 Bumped version.
+3691ccb pre 0.4.10 work
+8a9c114 added Austin Z's request for sh command error handling
+5475ced changed the don't know how to rake message (finally)
+0d4e402 updated task that check for message
+50e3ca7 pointed gem web page reference to the rake rubyforge page.
+adcbe0b Updated change log.
+e094745 Bumped version.
+a4bd0a2 Reference rakefile by global variable (rather than assume the name).
+6f95634 Added --slient to suppress the "(in directory)" announcement.  Useful when using rake in a filter.
+8c994c9 updated CHANGES
+0a52d2a Intermediate version 0.4.12.1. Multiple arguments to system command sh will not be passed to shell. Multiple arguments to ruby command sh will not be passed to shell.
+e859529 Added tests for non-shell args to sh and ruby.
+5c2515e updated changes for 0.4.12.1
+bbdc562 updated changelog.
+ef833eb Make testall the default task. Make testall test everything in one test session.
+331d0c6 Increment version. Added code to implement dry run.
+eb1ed50 Added dry run tests. Allow multiple rake parameters on test rake method.
+07ba7b7 Updated test rakefile. for dryrun testing.
+8c13000 final changes for rake 0.8.13
+c752212 Updated changes.
+548a877 Bumped the version to 0.4.13.1.
+b1c8a42 Added name_hack to the test task.
+01cf663 Gentlefied the word hack
+091d851 Bumped version to 0.4.14
+422f5c5 Removed SEP. Changed to use the testrb script.
+940c9fc added release notes for rake 0.4.14
+7aa5bb0 Bumped version to intermediate. Added args to ruby/sh command. Removed to_s from the redefine list because it is explicitly redefined elsewhere.
+73db2d6 Added block_run asserts to testfileutils to make sure the blocks are run.
+811ee91 Updated changelog.
+a2ff9ca Updated documents to show that --trace enables a full backtrace on errors.
+d6dd7b6 Bumped to verion 0.4.15. Also updated the --help comments for --trace.
+d5279cd Updated RDoc comments regarding TESTOPTS and task options. Simplified the get_options logic.
+380a360 added release nots for 0.4.15
+202b230 Initialized options attributes
+eb012b9 Initialized @verbose properly. Added parens the assert_match.
+e3bf972 Changed id to object_id
+0c72845 Fixed some typos.
+e5a65e1 Added testdata to clobber. Turned off verbose on the test tasks.  It really is not needed with the new test task impl.
+ade8c15 Added recursion to rake rules (up to 16 levels). Added RuleRecursionOverflowError.
+082ced3 Added teardown to tests to remove test data files. Added test for recursive rules. Added test for recursive rule overflow.
+9828b24 updated docs for recursive rules
+bd0154e Added module name to example.
+be1c66f Added module name to example. Added module name to example.
+9a19845 updated change file
+b09903d Updated CHANGES.
+667d11e Added tar.gz and tar.bz2 support to package task.
+4171952 Added tests for tar.gz and tar.bz2.
+1f2d2ba Update comments.
+0482ac8 The Jamis rdoc template is only used if it is present.
+7bc648d Bumped to intermediate version.
+66f1c0d Added an option to run the test with the Ruby -w flag set.
+d811ec2 Included a patch to fixed a warning in Session 2.1.9.
+fd10a13 Cosmetic changes to remove warning under the -w flag.
+8485a40 now using jamis.rb directly from the doc directory
+11c58fe Fix for Test/Unit bug in Ruby 1.8.2.
+396c85e added ruby 1.8.2 fix for test/unit
+fa497b7 Tweeked code
+d326c81 Rakefile uses warnings if available
+b412f1a Added support tasks to Rakefile: dbg, todo, and rubyfiles
+af6a3af Bumped intermediate version to 0.4.15.3.
+9e4dc21 Undef collect_file before redefining it to avoid warnings.
+96c9620 Removed require of patch for Ruby 1.8.2. Moved fix to the right position on the command line ... Doh.
+5d4d11c added contributed rake man page.
+2e87c16 Updated Changes file.
+da7cb40 Added release management to Rakefile
+4c1c728 pre-tag commit
+4a96a5e adding release management task
+e3770c9 adding release management task
+d11b7ed Updated to version 0.4.18
+dce5f11 Updated to version 0.5.0
+b905765 Update changes file.
+b819a17 Added temp files from dry run test to clobber.
+fd52346 Back reved to get a pre 0.5.0 number. Added Brian Chandlers fix for dryrun/trace.
+f1c045e Properly undefed collect_file.
+bd62282 Added test for Brian Chandlers condition.
+bcab42a added files for dryrun/trace functional test.
+8f276e2 updated rel notes
+7441d8e Updated to version 0.5.0
+d344053 Corrected spelling of Brian Candlers name.
+5f226b0 Corrected spelling of Brian Candlers name. Corrected spelling of Brian Candlers name.
+466839a Make FileUtils methods private in the top level to avoid accidental method propagation to unsuspecting objects.
+23800c1 bumped version to intermediate number
+cf5b569 added test loader option
+95dfea3 changes
+5be585c Added rake_dup to kernal and non-dupable classes. Added Clonable module. Prerequisites are now file lists. FileList no longer inherits from Array, but delegates to an array attribute. This allows for better Array behavior (believe it or not). Array methods that normally return an array will now return a FileList. Added == and to_ary moethods to FileList. Added and explicit partition command. The import method allows one to build a file list easily from an existing array.
+7bdd0ef Added ext functions to Arrays and Strings.
+c12ea53 Added extensive tests for the :ext method. Added test for the flatten bug pointed out by Stephen Lang. Better testing for cloning and duping. Testing for array comparisons. Testing array enumerations that return file lists.
+c3527d6 Test for FileList prerequisites.
+91d7661 added ext method to String and Array
+83549cb fixed existing file creation bug
+e3e91b9 updated changes
+a4b6d36 updated comments in est file.
+37af3d0 added comments.  beefed up filelist support for array returning methods.
+3dab184 bumped version to 0.5.0.3 ... including new file list stuff
+28cc7ce added tests (and code fix) to make sure to_a returns an array
+2e0cb07 bumped version to 0.5.0.4
+d20d8e3 inlined the ext changes
+fb8eacd fixed ext tests to not require rake/ext anymore
+21f55dd updated CHANGES
+0cbdd5a Changed name of alltests task in the release task
+dfbe692 updated changes
+01d418f Updated to version 0.5.1
+43d4081 Added Test abbreviations to Rakefile.
+d6d29d8 Added appliation accessor to Rake. Added import global function. Created a default import loader. Added support for import files to RakeApp.
+29d9941 Added functional test for imports.
+e395b3e added imports and test support for imports
+5bf7677 updated CHANGES. bumped version to intermediate. Make Rake.application singleton like.
+6f834d6 Added chains temp files to clobber list.
+ab29a59 Added check of tasks as well as existing files to rule checks.
+ebbd811 Added function test for rule/file chaining.
+21757cf new files for rule/file chaining functional tests
+a0f54b8 updated changes, switch to Task.task_defined? in rules test.
+2b19b71 bumped intermediate version
+dda8100 Updated to version 0.5.2
+5a3950d Updated changes.
+f022aee Shortened error on task failure.
+0e51ab8 Moved test command to within the verbose block.
+4c1ee5d added ignore file
+6a80926 Updated to version 0.5.3
+ddd28f9 bump version to intermediate 0.5.3.1.  changed tests to non-verbose
+cdd66db updated documentation
+445639c added quotes to the test file loader
+5fafef4 Updated change log.
+41dc852 Bumped beta version number. Switched to 1.9 compatible FileUtils private technique. Added .svn to list of default ignore files.
+9ca2830 Added tests for .svn
+eb7e309 Updated CHANGES.
+ed183dc Bumped micro version. Added support for nested filelists and arrays to include.
+af816b2 Added nested filelist/array tests.
+943492b Updated rake version to 0.5.4.
+ba6b3ff added release notes for 0.5.4
+6a62678 updated CHANGES
+a0328cd backed out rev so release can update
+e80a186 Updated to version 0.5.4
+a0adf69 Fixed mtime bug causing problems in windows unit test.
+567a276 Moved functional tests into separate file that can easily be included.
+56ed680 Added test for C: files.
+1c72686 moved functional tests. Added test for Rake.each_dir_parent
+1a2a91f updated changelog.
+ea538b2 Added explicit test task. tests are now verbose again. Added some missing files to the package file list.
+bbaa4d1 Bumped micro version. Changed how walking up directories is handled.  Works better on windows. Added each_dir_parent
+ef6140f Generate some test file content in the files. And remove the leftovers. setup and cleanup the chain tests better.
+5e18f26 Dynamically add the base file.
+f8b45c4 removed some files (now dynamically generated)
+43b6902 now removing testdata directory after running tests.
+544d5a1 renamed testing files to include underscore.
+308f355 broke up task tests into separate files.
+ceb84f1 version 0.5.4.3 -- fowler directory fixes
+5ec6a1c updated comments
+39a0c8f make earlytime compare equal to itself
+2d223ba backed out equality hack on early time
+1f6e40b enabled signed gem file for rake
+6be62c7 *** empty log message ***
+b60fe91 Added investigation to the task object. The ruby command now uses the same version of ruby as is running the rakefile. Added egrep command to filelist. Added to_s to the early time object.
+dd43700 Added test for egrep.
+19c220a Updated CHANGES.
+63bf337 Bumped version to 0.5.4.5.
+931e7ce Do not attempt to load test arguments.
+3bf7ac0 Allow arbitrary rubyoptions to be passed to the test script.
+53fc6a4 updated change log
+4d498cf Updated jamis.rb rdoc template to new version.
+18bbdde Bumped version Moved Task, FileTask, and FileCreationTask into the Rake module. Added classic namespace support.
+a0ae732 Moved Task, FileTask, and FileCreationTask into the Rake module.
+cf876e6 Enhanced gem_file to be sensitive to the gem platform.
+97aefeb Added tests for platform vs gem name.
+9d9800c added classic namespace file
+7dbc237 Fixed needed? logic to work with missing prerequisite files. Time stamp now returns an early time if a file does not exist.
+3b70c9d Added test for depending on a prerequesite that does not actually get created.
+62f96fe Fixed parenthesis in assert_match.
+422e1ac updated changes file
+f259068 Ignore xforge for now
+df6dea6 Clobber TAGS. Use the package task to get the package names.
+ccff10d Support for multiple sources. Refactor rule generation.  Mainly applied extrace method.
+a68e371 Removed private on package_name.
+96bae60 Create timed files now supports multiple new files.
+c84fe86 Test multiple sources.
+9f238d7 removed commented fail test for multiple rule sources.
+4ee081a release notes for 0.6.0
+e528b0d Updated changes.
+1861a19 Added version to README. Updated README to refer to the new documentation. Added classic namespace option.
+b608ee2 Now using built-in egrep.
+bb51383 *** empty log message ***
+499eb74 Updated release notes.
+e605f3d Moved RakeApp to Rake module (now Rake::Application). Added warning about using deprecated top-level constants.
+00a4c19 Added Rake::Application to classic_namespace.
+6bb7c96 removed temp huh task
+369ec0c getting ready for release
+d47fd38 Updated to version 0.6.0
+f65c5bc Added test suite instructions to the README.
+1969dbc Bumped version.
+618a61c Commented out the cert file stuff until rubygems fixes signing problem.
+ffb41eb Bumped version. Added original_dir to the Rake application.
+86a6d06 added Rake.original_dir
+824d335 Added safe_ln support for OpenAFS
+08d17a3 updated CHANGES
+3c3c0a3 *** empty log message ***
+036d464 Added comment about --trace in exception handler.
+7beeacf updated CHANGES file
+456d4c1 Updated Changes with multitask.
+27b0c7c Added support for multitask.
+3599d9d Updated changes.
+6129870 Added multitask command. Moved missing_const stuff to Module.
+47d3896 tests for multitask.
+ac96bdb Updated comments.
+5e23db9 Make version detection more robust.
+244ca85 Initial comments on multitasking.
+364adb5 Started removing globals. Added application attribute to task. Made fileutils work better with 1.8.3.
+2eb2267 Added internal/external options on RDoc.
+892bb52 Removed require_gem usage.  RubyGems really does not recommend it anymore. Switched to Rake.application for autocreating the app.
+bd6a5fe Set to a beta 99 version. Removed globals. Allow switching of rake apps. Comments on Cloneable. Moved management of TASKS and RULES to the application (actually to TaskManager). Added namespaces and scopes. Task.new now requires the owning application. Dependents are now looked up in the scope of the task. Task[x] now delegates to the application. Added rakelib support (experimental) Import can now take multiple filenames. Added TaskManager.
+aa98a68 Added renamed in_shell to external in rdoc task.
+b9ca564 Added (empty) test for namespaces.
+858b54a Using app.intern for task creation.
+233d8ab Using app.intern for task creation. Using app.intern for task creation.
+16d76df task manager tests
+36296cf Rakefiles are now loaded with expanded path to prevent pollution from Ruby load path
+9bd9d8b bumped version
+b52051d Added Rant comment.
+dd80335 Added rf abbreviation.
+e07e489 Added multitask docs. Started namespace docs.
+7e6b3a9 namespace command now returns a Namespace. Task objects allowed in prerequisite lists
+04e5680 Corrected spelling.
+62ff663 Added the Perl Build System.
+760a35b Added functional test for invoking tasks in same namespace.
+3d32410 rakefile doc in progress.
+9e4386f Make resolve_add and resolve_exclude private. added text to lookup method description. Fixed some comment typos.
+538b7b7 renamed test targets
+8711301 rakefile.rdoc in progress
+2e9e9a4 added explicit namespace tests
+6cd7ba4 made namespace object available inside of namespace scope via a block param
+0d53682 added tests for yielded namespace argument
+ffdc67e added once modifier to the namespace mock test
+c625345 added file/namespace testing to functional tests
+247e4d8 initial copy of 0.7.0 release notes
+6ac9757 tweaking for final release
+1221ab5 Bumped version in docs. Updated Perl Power Tools web address.
+a4a99b9 fixed typo.
+3096101 Added installation task for missing jamis template.
+95e118f Fixed phrasing in release doc.
+f43633f Added copyright date. Bumped version.
+289be7b Updated to version 0.7.0
+73a306b fixed typo in test comment
+7b014fe Exclude the pkg stuff from the grep list.
+209764c Add an optional parameter on the --tasks command line option to filter tasks.
+3e86168 updated changes with new --task option
+50205d0 Removed unneeded assignment to source. Added flatten to allow the transforming proc to return a list of prereqs.
+f8dbb70 Added a test for the flattened prereqs in a rule.
+a19ec41 Updated change log.
+3ca079f Bumped to version 0.7.0.1 Added pathmap and related methods to String. Added pathmap to FileList.
+6df85fe Added tests for pathmap.
+639bfc8 Added comments to pathmap methods. Added support for %% in pathmap.
+fdaa4e5 Added test for pathmap %%.
+badc0c3 Updated CHANGES file.
+c597bf7 Bumped rake version to 0.7.0.2. The -f argument is now optional.  Omitting it will disable the Rakefile search. Files ending in .rake are recognized by the -r option.
+6748b18 Added functional tests for the -f with no arg and the -r with .rake.
+f67b735 Added parenthesis to argument.
+e15b914 added some new files for testing -r and -f
+c94cdd8 Bumped version to 0.7.0.3. Rescue StandardError in safe_ln to avoid Windows Compatibility problems.
+adeaf0f Added a test for ln.
+89eee02 Updated change file.
+fe4bbb2 Bumped versino to 0.7.0.4. Added NotImplementedError to safe_ln rescue list.
+fa80594 added 0.7.1 release notes
+4dd6ea2 Updated changes files.
+8053415 Added reference to Bras to the README.
+8eabcf4 Bumped vesrion to 0.7.1.
+1a4420b fixed typo in pathmap docs
+ac681d3 modified rakefile to Bil Klebs suggestions
+2633055 removed tabs from source code.
+f41afcb errors now go to stderr, better handling of invalid cmd line args
+2e8f31b updated Changes
+d3be5be better exit handling.
+0cb938c fixed functional tests to look at stderr
+c8197eb added rcov and unit tests
+3e72ee5 improved coverage in unit tests
+8f9da2e removed nested directory from CVS conversion.
+d64d3ca Added missing subdirectories needed for testing.
+1a5bbe3 * Added square and curly bracket patterns to FileList#include (Tilman Sauerbeck).
+aa9aeed Added plain file names to rule dependency (suggested by Nobu Nakada)
+b8e3e77 Added pathmap support to rule dependents.
+9ddcb4a bumped to version 0.7.1.4
+76c4c78 Namespaces now know what tasks they manage and can report them.
+da4f87a Fixed method name leak from FileUtils.
+756b62b Added test for noop, bad_option and verbose flags to sh command.
+c25797f Removed dependency on internal fu_xxx functions from FileUtils.
+e3a5073 Bumped version to 0.7.1.5.
+05a9e50 Added shame task to the Rakefile.
+3210a02 Added require rubygems to a test, cleaning dot files, parameterized tar and zip for package command, other minor changes.
+858eae6 Added RakeFileUtils methods to list of private methods (to avoid leaking into Object as public methods).
+c5ec238 No longer delete core directories in clean task. Removed FileList exclude code duplication. Added block based FileList exclusion. Removed rake_dup.
+98758e1 Added release notes for version 0.7.2. Bumped version to 0.7.2.
+0c5500a Added existing and existing! methods to FileList. FileLists now claim (via is_a?) to be Arrays.
+e28441a Bumped version to 0.7.2.1
+6596cd3 minor spacing correction on error message
+9bb3cb2 Changes for Rake 0.7 3
+4b2de6d Final changes for Rake 0.7.3
+9ca2c3d Added task arguments
+8b42242 updated CHANGELOG
+925fbb8 task args are now passed as block parameters
+0b08813 added rubygems whereever flexmock is used
+d1f89d7 added task parameters, named parameter via desc, column limited output
+26fba88 rake now returns status codes from explicit exits.
+b2d9457 updating release procedure
+3951de8 working on release task
+de6e516 Updated to version 0.7.99.1
+178f8db working on release task
+7a18257 working on release task
+2ed2c32 Updated to version 0.7.99.1
+34bf98f working on release task
+04ee7d6 Updated to version 0.7.99.2
+d800e9b added dependency cycle detection
+e462afc Changes to get 100% code coverage in main rake.rb file.
+402a7ab added explicit require of rubygems/builder to gempackagetask.rb
+b7a8802 -h is now the same as -H
+553a8b8 added changes about -h
+a51bc3e fixed test of --usage flags
+388dece Fixed accidental reuse of name in test.
+fbead1c Prettier inspect for tasks.
+764d68a Applied Stu's patch.
+516e5af Menterbated revision of Stu's patch.
+f6b903b Rake task arguments.
+a74f8a9 Fixed error when no displayable tasks are found with the -T option.
+bab1b53 Ruby 1.9 compatibility changes
+991f432 Ruby 1.9 commit - unit tests passing - functional tests passing when called standalone - functional tests failing when called from rake ruby19:test:functionals
+20542ed removed lingering reference to the no_files test directory
+354fbfa removed debugging messages from functional tests
+1a3f8e6 All tests passing with Ruby 1.9.
+8e05fcd updates for ruby 1.9
+32fef52 Changed argument specification to use task command rather than desc command"
+4770893 bumbed version to 0.7.99.5
+e6ef063 Updated to version {:reltest=>nil, :rel=>nil, :reuse=>nil}
+d34cb91 Ready for release
+e65e3d4 Updated to version 0.8.0
+37d897e Bumped to verion 0.8.1, removed references to ftools and parsedate for 1.9 compatibility
+5d7b154 unbumped version so release task will work
+663f1a1 Updated to version 0.8.1
+0c3268a fixed FistList order test bug. Mac extended attrs in tar.  Missing subdir
+fa843ef bumped to version 0.8.1.1
+7e04d44 included attributions in changes.
+eb3ad27 fixed typo in README
+5bf0bd6 fixed check for FileUtil options
+5a2e820 updated Changes
+e4f025c fixed bug in rules involving multiple sources
+5cb5ebe implemented experimental -e option
+b59ebc0 Added -p/-E options as well.
+a2f9cb6 Removed -e experiment
+0e3a379 Changed README for demo.
+87bdf39 demo of failing rake test
+38cdfa1 added README to get content in the test/data/unittest/subdir directory
+ea59512 Fixed test that was purposely failing for demo.
+e33e843 added git ignore file
+41a334b Applied optparse patch (some tests are failing)
+cbed75e fixed nosearch directory issue
+7c7c763 Merge branch 'master' into optparse
+12b49ed updated git ignore files
+9f5d392 removed dead code from optparse patch. Renamed proc to lambda.
+cafd82d Removed more dead code (=begin/=end pair).
+2cec731 Fixed optparse test failures (-Ilib VS -I lib).
+172c984 Applied Edwin's patch to fix the -I lib problem.
+5c74aad Merge branch 'optparse'
+ee0d3cb updated CHANGES with optparse info
+0466667 resolved merge conflicts
+9ed1fe7 Cut version 0.8.1.3.
+ffc668e removed another getoptparse dead code line
+b324ab8 Dynamic terminal size detection
+c92f8fc updated CHANGES
+172c50c bumped to version 0.8.1.4
+0e96957 fixed tests failing because of dynamic terminal width detection.
+5549393 Updated dup and clone to have preper semantics w.r.t. taint and freeze.
+da4c06d cleaned up test_tasks
+9875318 added clear/clear_prerequisites/clear_actions to tasks.  Added reenable.
+358dbb6 updated CHANGES
+a59a5ae Change the rdoctask to not specify a template by default, thus defaulting to rdoc's default template.  Since rdoc's default template is html, this should not change anything.  This modification will, however, prevent rake's default from incorrectly overriding a template specified in the RDOCOPT environment variable.
+4c63cae Updated README to note the current location of the Rail source code repository.
+2735ec9 bumped to version 0.8.1.5
+f979922 Added an explicit gemspec to the repo (for github gems)
+7bccf88 Merge branch 'master' of git://github.com/DesigningPatterns/rake into rdoc_template
+2d1ac84 updated CHAGES with rdoc template change
+fba0457 Adding support to output full descriptions when not outputting to a TTY.  Also fixing an exception that will be given if a task name is longer than the TTY output (due to description truncation)
+1d863e2 changed from Mutex to Monitor
+01c9b0b Fixed Makefile dependency bug. Added makefile dependency reading performance patch.
+218447d Prerequisites are no longer FileLists (that just seemed wrong).
+42787f3 default values for task args can be easily specified.
+a892ea2 updated changes file.
+e28a3e9 Merge branch 'e'
+9347a83 bumped to version 0.8.1.6
+b5cc2e6 fixed nosearch directory issue
+bee3837 updated git ignore files
+e9dbf1e Merge branch 'optparse'
+de93f4c updated CHANGES with optparse info
+8d5423d Cut version 0.8.1.3.
+22fdbe8 removed another getoptparse dead code line
+30f1297 Dynamic terminal size detection
+7e16a94 updated CHANGES
+6b7f820 bumped to version 0.8.1.4
+680940d fixed tests failing because of dynamic terminal width detection.
+c85656e Updated dup and clone to have preper semantics w.r.t. taint and freeze.
+b922885 cleaned up test_tasks
+a48c35b added clear/clear_prerequisites/clear_actions to tasks.  Added reenable.
+9c9f49e updated CHANGES
+a69a78f Updated README to note the current location of the Rail source code repository.
+7554921 bumped to version 0.8.1.5
+4aaefed Added an explicit gemspec to the repo (for github gems)
+f52c7c0 Merge branch 'master' of git://github.com/DesigningPatterns/rake into rdoc_template
+2016cc2 updated CHAGES with rdoc template change
+9d6c5b8 changed from Mutex to Monitor
+b90c0d0 Fixed Makefile dependency bug. Added makefile dependency reading performance patch.
+68303da Prerequisites are no longer FileLists (that just seemed wrong).
+c523f41 default values for task args can be easily specified.
+9a420ca updated changes file.
+66a8a1c Merge branch 'e'
+ad2a721 bumped to version 0.8.1.6
+f8a729b Updating based on feedback from Jim regarding Emacs command window not being a tty.  Also adding some help/instructions about the sessions gem required for running all the tests.
+f03c38d Merge commit 'rake-0.8.1.6'
+40130d0 Merge branch 'master' of git://github.com/gstark/rake into cols
+e8abe58 updated CHANGES
+16f148d some doc changes for the 0.8.2 release
+ca370be Updated the README file for 0.8.2
+4a70b1a updated rakefile docs
+352901d added system wide .rake functionality
+1b3ded2 make dependency files now can have multiple targets
+f192729 working to clean up problems with system_rake
+dea6228 fixing problems with system rakefile changes
+8f01bc3 changed the term curdir to project
+eecc1ee bumped to version 0.8.1.7
+53ab09f removed stupid lock file .#dep.patch
+47e3be3 refactored have_rakefile in readiness for system directories
+af88545 make dependency files now can have multiple targets
+d4e7993 removed CVSROOT (in this branch)
+927967f removed extraneous debug statements
+41d9b92 added system wide option handling
+4b4bce1 added in_environment for easier environment modification testing.
+2da66fd partial implementation of system rakefiles
+fa2e26f Now loading system directories
+bc08e77 Misc changes
+d1241fb merged new implementation of the system dir stuff
+4820162 bumped to version 0.8.1.8
+ca502bb some Ruby 1.9 fixes
+f29ae0a fixed finding global rakefiles when no project available.  Fixed nosearch / global search issues.
+75c6779 bumped to 0.8.1.9, new gemspec
+5af487a updated for ruby 19 compatibility
+f0df74a introduced the new args format
+66222cf Merge branches 'dev' and 'master' into dev
+f74bf45 added contrib/test_sys to ruby 19 test suite
+ecc4344 updated docs for new task argument format
+8519372 improved coverage
+fcf0bb1 some refactoring and code cleanup.  Better coverage
+974bee1 removed sleep from file creation task
+26ef0d7 bumped to version 0.8.1.10 and new gemspec
+f2e9634 updated readme to reference --system options
+24d8389 dirname issues in windows vs unix
+4e8426a added ruby to shell command for windows
+e7abd8a fixed some more tests for windows
+db41bbf added missed percent
+8f812f7 windows can not handle times before 1970
+eab69cb invalid unix? test, had trailing empty string match
+fa02277 Fixed in_environment to check for current directory in a better way
+9981a2f added "call" to windows shell commands that need shell expansion
+02a0fbe fixed shell reference to not use $ under windows
+1df229c fixed shell reference to not use $ under windows
+2b80e96 more workarounds for windows system
+499ef69 disabled the 2nd half of the test_ruby test on windows
+b03810d normalized slashes in globs, cleaned rbc files, no load rakelib with -g
+9de23f4 added Bheeshmar to changes, bumped version to 0.8.1.11
+e53e1cd Updated docs with thanks list.
+4a3b3f7 bumped to version 0.8.2
+936dc93 corrected typo in README
+11528c5 bumped to version 0.8.2.1.  nodoc on each_dir_parent
+5d69a5e updated ruby19 rake tasks
+d454d44 Fix expectation of %APPDATA%\Rake to pre-exist on win32. Kinda looks like this wasn't tested, nor have I, but mine doesn't crash, and should work on most win32 platforms.
+03c8c87 Improved windows system dir support.
+01ba448 broke out win32 specific functionality into separate file.
+d2bd7ef updated comments
+5be361c updated CHANGES
+060b4d5 fix for ruby paths with spaces
+2bc5cc3 Merge branch 'dev'
+e31af67 Bumped to version 0.8.2.99.  New Gemspec
+97f83c0 fix have_rakefile test (case-sensitivity)
+1dbf2e2 bumped to version 0.8.3
+4e94fba updated specfile
+a6c80c9 updated docs
+a198c30 Merge branch 'mainline' of git://github.com/quix/rake into case
+b167f25 fixed case sensitivity issue in test.
+7134a1b bumped version to 0.8.3.1.
+3c458e2 new gemspec
+b0f2962 preserve case for case-insensitive-but-case-preserving filesystems
+e6353df updated tests to run with the latest version of mini-unit
+8d7e7e8 Modified generation of lib_path in TestTask to support windows-style paths in libs (ie paths with spaces and slashes)
+f41e186 Merge branch 'case-preserving' of git://github.com/quix/rake into dev
+5e8c650 Merge branch 'master' of git://github.com/bahuvrihi/rake into dev
+5a8fb48 updated change log
+f5d27d9 now allow spaces in make dep files.
+4bdb881 added tracker to docs
+ca2f6b9 changed version in README to 0.8.3.
+964fac8 fixed prereq docs w.r.t. parameters
+bed8b8f bump rakefile docs to 0.8.3
+298b939 doc wording change
+995b742 fixed namespace task list bug.
+56317b4 modified to work with revert of mini/test
+dd9c844 removed manage_gems from rake gem package task
+49b669e Consider MinGW as valid Windows Platform.
+5813a2a Rearrange the search order for system directory on Windows.
+e2a1cb2 Properly mock Rake::Win32 calls during tests.
+fd75a2c Corrected test and mocks under Windows.
+c7f5273 Make some tests platform specific.
+23275bc Really make matching of Rakefile case insensitive.
+ae10cfc Partially revert 16f148d9894ce5a64e228da787df1a21b350b3ac
+ab9a2ef remove stray env call in the packagetask
+efe5ad4 Cleanup documentation and make it easier to read.
+3b88fe0 Improve documentation for RDocTask.
+a8d3e87 Add unit tests for RDocTask.
+b74000b Make it possible to completely customize the RDoc task names.
+3364539 Add a hook method to RDocTask so that the Hanna RDoc template doesn't have to supply its own RDoc task, and can reuse Rake's instead. Also, make inline-source the default option, and make Hanna the default template for the Rake RDoc output whenever possible.
+a3e6313 Tweeks to get the hanna template to work
+6ae438e Updated copyright in the README
+7a3875f Merge branch 'windows' of git://github.com/luislavena/rake into win32
+f9bd782 updated changes file for recent contributions
+157727c removed hanna setup from Rakefile
+6257328 Merge branch 'hanna' into dev
+614e7a7 updated readme to version 0.8.4
+bdb31e3 am - Options parsing now appropriately removed rake options from the argument array.
+b8cdd87 simplified needed? method
+7e37aa3 Merge branch 'master' of git://github.com/pivotal/rake into argfix
+6cca7de removed rakelib from system load tests to avoid reloading constants
+5de9f34 bump to 0.8.3.2 -- 0.8.4 release docs, and CHANGES
+6dfef8f bump to 0.8.3.99
+17fae80 new spec for github beta gem
+f0413aa Modified the main Application class to use the "app_name" passed in to the "init" method when printing messages on stdout/stderr.
+cfd81de Workaround test teardown failure from FileList giving repeat files on Windows.
+913558a Fix Windows test warnings for non-existent drive.
+0062228 Fixed Windows test failures regarding system().  Added repaired_system.rb.
+70fd8c0 use 'cmd /c' to run batch files for multi-arg system()
+e7c8634 expand_path gives forward slashes, but at least cmd.exe requires backslashed path
+4e896bd rdoc errors
+2f6d805 updated copyright notices for 2008
+e41282d removed "default" from verbose option descriptions
+4bc0a89 Workaround test teardown failure from FileList giving repeat files on Windows.
+22e051f Fix Windows test warnings for non-existent drive.
+d704fbe Fixed Windows test failures regarding system().  Added repaired_system.rb.
+20a9794 use 'cmd /c' to run batch files for multi-arg system()
+5ace1fd expand_path gives forward slashes, but at least cmd.exe requires backslashed path
+7c65a98 bumped to version 0.8.3.100
+a537c6d regen the github gemspec
+cde47a9 Merge git://github.com/jimweirich/rake into mainline-rake
+3c3e29d merged new repaired_system.rb; made Windows platform test consistent
+a2a1d1d ENV keys are case-sensitive in jruby
+a14d79c merge latest repaired_system.rb
+2d04aa1 updated alt_system.rb (was repaired_system.rb)
+7fc08f9 fixed investigation test which assumed Array#sort was stable (jruby failed)
+228d398 ruby 1.9 system() has now been fixed; only patch previous versions
+67199ff changed default verbose setting to true
+ecfe7fe updated changes
+6693ad0 clarify ruby 1.9 fixes in comments
+c41452e Bumped version to 0.8.4.
+45dfcd3 Updated release notes and CHANGES file.
+9b4f4b3 Updated release notes.
+e86d94d Bumped to version 0.8.4.1
+39c8ac2 Merge branch 'mainline-rake' of git://github.com/quix/rake into quix19
+5138b0b Merge with quix19, the improved windows logic from James Lawrence.
+a975fbd Added r19.diff to git ignore
+180688c Improved test for defined methods.
+d751f06 Improved ext method (need to double check windows code)
+e3ad567 Fixed pathname rdoc.
+700bb4a Cleaned up the pathmap implementation a bit.
+0ca31c4 Made invoke_prerequisites in MultiTask private
+6694999 Using the straight system call (monkey patched if needed on older versions of ruby on windows).
+83a5b32 Updated FileList#ext rdoc.
+6736459 Added options to egrep.
+522eb49 Cleaned up the system exception handling and exit code.
+8eedc04 Removed direct calls to the Win32 system dir method.
+d8d9d32 Standad_system_dir method is now defined based on running under windows or not.
+7c8b85e RDoc module comment cleanup.
+6855092 Nicer handling of -I options in testtask.
+14a4c32 Show all of the sh command if in trace mode.
+47bda79 Fixed typo in RDoc task.
+f6d5d5e Removed Application level test for win32 specifics (already covered in win32 test).
+55ba34f Removed unix specific test.
+efd93bf Better multi-arg shell tests.  Removed verbose test (which was merely testing the verbose setting of the testtask, not the default verbose setting of rake itself).
+02f4ded Fixed duplicate tests in sh testing.
+f6ac854 Added PseudoStatus to aid in cases where a null status is returned.
+0f890ef Added output the check_xx_expansion.rb
+b259cac Added EXEEXT to RUBY command
+2afe88b Calling AltSystems system.
+58e19d9 Removed output from the check expansion scripts.
+783adca Added warning flag to Ruby 1.9 tests.
+0f247ad Bumped version to 0.8.4.99
+42923de Regened gemspec for github.
+7ed9580 Fixed gemspec to exclude TAGS file.
+9c4d005 added ability to use darkfish-rdoc if installed.
+4b8c5a1 updated gem spec
+e081166 Added release notes for 0.8.5
+80d93a8 Updated release notes for 0.8.5.
+5855637 Bumped version to 0.8.5.
+693bcfb updated changes
+05ffed8 Modifed Rakefile to not require darkfish for the GemSpec
+8165894 Removed inline source option on RDoc (which is apparently deprecated).
+ca13b30 Updated CHANGES
+6baed2b Fixed Hash dividers to look better in RDoc.
+7ed15bf Bumped version to 0.8.6.
+143c5b0 Bumped version in docs.
+649f323 Added release notes for 0.8.6.
+9103778 Fixed EXEEXT for JRuby on Windows.
+2460082 Added release notes for 0.8.7.
+bafe1ee Bumped version to 0.8.7.
+00fb2aa Updated Changes files.  Tweeked release docs.
+70c3032 Updated CHANGES file.
+8f19854 Allow single line comments immediately prior to a task to be used in place of +desc+.
+0d539c3 Fixed # task comment bug.
+3f5ee0a added daves comment patch to CHANGES
+0d4416e Moved FileList to a separate file.
+2de58bc Broken into separate files.
+b1582d4 moved top level manipulators to top level.
+aaa93d7 Updated main copyright
+db5ae92 Added .idea to ignore file.
+f6d26a5 Updated rakefile to not generate darkfish in the gemspec.
+ee6cb80 Fixes for post 0.8.7 merge.
+63d419d Restructured tests into subdirectories and switched to the *_test.rb convention.
+a66153a Fixed up test location for r19 and rbx.
+eb6702a Fixed testing shortcuts.
+f8d1b8b Updated RBC clean extensions.
+90cb387 test_all => test:all
+db9dde7 Added deprecation warning for classic namespaces.
+72e5cbb better toggle mode
+e98aa21 Changing show tasks.
+d8090fd Fixed tests for show_tasks changes.
+6f8b9a0 Show tasks using :tasks
+4f6507e Renamed tasks_test.rb to task_test.rb
+a483460 Added line number stuff (in progress)
+89bc2c1 Added line number recording to task definition.
+8542151 Updated changes file.
+62c0ae2 Removed unused dbg task
+0227ed7 Extracted method display_error_message (more readable and make customization easier).
+23e98af Added some DSL tests.
+43ea847 Moved tags task to a separate file.
+5a9fe7b Allow namespaces to be nil.
+89f6937 Attempting to fix quotes in test runner.
+87e39db Updated quoted paths in test task code to use double quotes.
+652b3f4 Updated changes (fixed http://onestepback.org/redmine/issues/show/44)
+c7a92d5 Testing that invalid options errors are printed.
+762e6c5 Updated changes (http://onestepback.org/redmine/issues/show/47)
+6afd6fa Fixed problem with :verbose=>false in sh and ruby commands (http://onestepback.org/redmine/issues/show/52). Updated tests to cover all scenarios.
+34ddd30 Pulled verbose calculation into its own private method in file_utils.
+5f52524 Refactoring the sh command a bit.
+2865311 Changed nomenclature from shell_command to shell_runner.
+9cbc5a6 Documentation update.
+9224cf9 Updated docs to reflect the task argument / environment variable matchup.
+1261da8 Updated rake version in Rakefile documentation.
+18ba905 More document tweaks.
+dcd95c4 Update test that reference README.
+6ee9f1e Using Config's os_host rather than RUBY_PLATFORM (http://onestepback.org/redmine/issues/show/42)
+8b256a2 Test Task refactoring.
+31e849d Removed safe_level from test task.  Doesn't work with -I option.
+19e3a40 Added test for flattened test libraries.
+5725abb No -I if there are no test libs.
+74c65b2 Changed how exclude on file lists is calculated (http://onestepback.org/redmine/issues/show/37)
+d000a3d Added RAKEOPT environment variable support.
+73d55ff More tests for RAKEOPT.
+de46c07 Task invocation chain now printed on errors.
+622c4ed Only add chain methods to exceptions actually caught in Rake.
+db133d3 Added fail change on error (http://onestepback.org/redmine/issues/show/3) Added RAKEOPT support
+6fe3f8e Isolated most flag testing in an in_environment call to prevent the RAKEOPT environment variable from interferring with the results.
+4dda757 Fixed race condition in tests.
+967b70e Added an environment module to rake. Eventually this will be where Rakefile are evaluated.
+0554a90 Rakefile are now loaded using Rake::Environment
+6a8bac6 Removed Rake's DSL commands from the top level.
+c9fc213 Use the DSL.environment command to execute arbitrary Ruby code in the Rake environment.
+cd368cf Bumped version
+4eda73f Removed duplicate location detection logic between the comment and -W processing code.  Other minor cleanup.
+f191142 Optimized comment loading to only happen with -T, -D or -W options.
+5f74be3 Bumped version to 0.8.99.2.
+cae4327 Added -X option to enable DSL at top level. (option subject to change)
+0b11f0f Fixed test_nested_libs_will_be_flattened to use File::PATH_SEPARATOR
+4e8233d Top level DSL is make the default (for now).
+813408a Fixed no top dsl option logic.
+0712aed Avoid command line too long problem when running large numbers of unit tests
+c745327 make sure rake lib is available
+c65e08f Merge branch 'master' into env
+75e3dee Updated CHANGES to mention the warnickr changes for test task.
+af242ee Windows needs the path to the base rake lib to be explicitly included
+8192fda Test scoped dependencies work for file tasks
+fce3f05 Always use scope when looking up prerequisites
+a39943a Added ignore for transient data in test/data/namespace.
+7cc96f8 updated changes.
+301828f Updated fix for path statement.
+3fd4a8a Added default to --top-level-dsl option comment.
+2c013dc Added pivotal link on a spot or two.
+0e555e3 Merge branch 'env'
+d459276 Fix spelling in rakefile.rdoc
+3806e74 ftools is deprecated in ruby 1.9.1; use fileutils
+479af7d Merge branch 'master' of git://github.com/warnickr/rake into windows_fix
+80990ea Renamed block variable to avoid shadowing.
+f5a1bcc Let's see what ruby version we are running.
+d8d1580 Trying exceptions on run code run
+61d2b6e More r/c/r testing.
+37ed321 Trying assert_exception for R/C/R.
+796f502 Fix for weird exception error
+3e2e648 Back to default rake task
+2fa0204 Added test to rake_test_setup require.
+8ebd7f4 problem expression for exceptions in a test
+195e3a2 Removed debugging output from the ruby test.
+610f830 Removed demo files used for debugging Run Code Run issues.
+26ce90c Moved test files into file lists.
+ca5a5ed Moved version display to file level and removed dummy test.
+7761a95 Added prerequisite_tasks method.
+3df619e Moved some common includes to the setup file.
+43f2ec6 Cleanup up tests. Added prereq and timestamp tests.
+369cd12 Refactored prerequisite name lookup into a single method.
+4cdc873 fileutils tests now use the currently running ruby for shell tests.
+b6f9bdd Added comment about the RUBY constant
+eaaa948 Merge commit '3806e74555cc37e7162308b9942e9653ea0c39be' into dancor
+1b8942b Changed class method calls from :: to .
+eeb81eb Fixed egrep to capture errors.
+853aa2e Bumped version to 0.8.99.4
+99137a8 Added "." as library (for Ruby 1.9.2)
+285f249 Added <=> to list of must define methods for FileList (due to change in <=> behavior in latest 1.9.2)
+35ad8e9 require 'rake/file_list' can now be done without including all of rake.
+8f5f008 Refactored session tests allowing command line ruby and rake commands.
+57b88a8 require 'rake/dsl' now includes DSL at top-level
+7329d52 Removed blank line
+1ae7442 Moved to structured version numbers in a separate file.
+cb9fc5d Updated copyright notices.
+e401b55 Fixed rake_require to correctly save the loaded file names and avoid reloading after the first time
+f26004e Improved rake_ require test.
+ebb22f3 Fixed misspelling of pseudo
+60ad5d9 Fixed doc typos
+5148aac Task args no longer pick up values from the shell environment.
+f4ca3dd Changes to egrep
+b58d2e3 Updated test for egrep
+ce724c2 FileUtils methods are now part of the DSL
+22e6bf7 Moved RakeFileUtils into the Rake module
+321178d Renamed RakeFileUtils to FileUtilsExt
+c9bf4d2 Updated rake readme to point to the pivotal and the bug reports.
+e43d143 Example failure
+e2c6553 Fixed example failure
+fa52911 Explicitly broke a test.
+c90c7b5 Fixed demo broken test.
+0df4b81 updated readme.
+82f13eb More sophisticated tag generation.
+9dad179 Removed option file constant.
+bf7bc77 fix rakefile_location for nil callers and not catching methods in the call trace
+6632653 don't print the rakefile directory message if it's in the same directory we started in
+f02a90a agregious typo
+8010b88 agregious typos
+e4de389 Config is deprecated on 1.8.8 and 1.9.3 use RbConfig
+91f6016 Guard against missing rvm.
+355f703 Leave test/shellcommand.rb world-readable after test.
+d39b6c4 Use $stderr when we're printing user-only messages
+147a1b7 Tests can now run on 1.9
+50a952a Ignore .swp files, root directory ignores
+d70638b Merge branch 'master' of https://github.com/spastorino/rake into spastorino-master
+ffad055 Suppress unused variable warnings for 1.9.3dev
+2365bd2 Remove trailing whitespace from rake
+c225f5d Replace Rake::GemPackageTask with Gem::PackageTask
+ab97d7e Update with recent commits
+e13d857 Update Rakefile to use Gem::PackageTask
+eecdaf4 Replace Rake::RDocTask with RDoc::Task
+b60e4ef Recognize 'Windows Server' as a windows system
+4ec139d Add development dependencies for rake
+d54264c My rescue is more-exact
+d09323a Merge branch 'master' of https://github.com/raggi/rake into raggi-master
+1483c25 Hide maybe-ness of printing the rakefile directory, merge with stdout -> stderr change
+fb30c60 Update CHANGES
+244847d Merge branch 'master' of https://github.com/ssamoon/rake into ssamoon-master
+50ca739 Update CHANGES
+7f6f640 When a file depends on another with the same timestamp, run instead of skip
+24394a1 Update CHANGES
+9e2bb41 Allow require by avoiding load
+4fedcd4 Update CHANGES
+91259b4 Use case-insensitive comparison to find Rakefile on Windows.  Partial patch by Roger Pack
+b6f7602 Convert history to UTF-8
+3bff3a1 Join the future and use RDoc::Task!
+68c7a8c Fix indentation
+81d0b98 Update CHANGES
+53219ca Typos.
+16ec262 Update CHANGES with further typo patches
+af62240 Clean up trailing whitespace.
+c63034d Revert "When a file depends on another with the same timestamp, run instead of skip" due to comments by James M. Lawrence.
+f5b2479 Allow this gem to be picked up by gem-testers.org
+cb95956 Be sure to package the .gemtest file too
+71d58da Merge branch 'rtlechow-master'
+27a81c2 Skip functional tests on Windows since they require fork.
+f0660bb Test and better document the :noversion param
+6cba1fe Merge branch 'master' of https://github.com/djberg96/rake into djberg96-master
+e938509 Warn when sys is required
+a3d4db3 Remove shebangs.  Ruby commit r22788 by nobu
+bd71a55 rake.rb is not executable.  Ruby commit r23847
+e535d82 Deal with escaped spaces better.  Ruby commit r22791
+a81a515 Fixed typo.
+870a6de Removed inline-source test on deprecated software
+22efaad Deleted commented out test code that hasn't been run in 8 or more years.
+97cee7c Disable expected sys warnings during test.
+22cb9c8 Disable (annoying) warnings from session gem.
+5f10762 Disable expected rdoc task warnings in test.
+ae93ad2 Disable expected warning about inline source in rdoc task testing.
+15c309a Use require instead of load in testtask and runtest to avoid duplicate loading
+922da4c Re-exec with the local copy of rake to ensure the we're testing our code
+8049c7e Only complain about missing RCOV is it is actually requested.
+131a8d1 Updated command line argument handling as well as the command line doc.
+98d15d3 Moved rake_extension to ext/core.rb so it can be included separately.
+86700d8 Picked up ext/core for ext/string
+ed871bc Added rake/pathmap.rb as a separately requirable item.
+b8a1c4c Added explicit require of pathmap so the file_list.rb is separately requirable.
+84da101 Bumped to 0.9.0.beta.0
+72bdd5d Reverted single line comments enhancement for desc.
+5d788a9 Removed #/desc change from CHANGES.
+0de0e3e Bumped to 0.9.0.beta.1
+0e93081 Added access verification tests to the sessions tests.
+16bfcce Fixed inverted value of -X option
+4857194 Now extending the top level object
+1e79ad5 Removed the module evalution hask in environment.
+3b5f4b0 Improved tests for environment
+6f2d8e8 Rescue failures in an ensure block to get original exception.
+5ca24ba Removed the option to include the DSL in the top level.
+3b60390 Deprecated top level import in favor of Rake.import
+dcadc07 Updated CHANGES with import and DSL changes
+4ab3c72 Removed deprecated argument usage from Rakefile.
+2732a9a Updated CHANGES with deprecated :needs
+afaccbf Bumped to version 0.9.0.beta.2
+148d6f2 Comment reformatting for FileUtilsExt
+81fb703 Bumped to version 0.9.0.beta.4
+3923586 Explicitly extend the Tags module with Rake DSL commands.
+471e3b9 TESTOPTS/TEST_OPTS/TESTOPT/TEST_OPT will all work now.
+1c6e4db Fixed slow tests.
+4bb3a78 Renamed file filecreate.rb to file_creation.rb
+96d072e Added test:times target
+e6a2fce Removed the more or less useless environment module.
+7c9fc5b Exclude rvm directories from rcov.
+85c98a9 More rcov friendly code
+47aefd5 Added test for FileList#egrep with an error.
+6c3ff73 Fixed false pattern match
+efc4a7d Added test for deprecation method
+6c3c821 err => error_messages
+02e7bbb test coverage for system dir
+a850f73 Added deprecated message test.
+b476e3d Removed XXXtask libraries from coverage consideration.
+7849e27 Removed unused variables from Rakefile
+b7f4917 Removed rbx/ruby19 rakefile (using RVM is better)
+ff707b5 Bumped to version 0.9.0.beta.5
+81cc44b Remove outdated rake.gemspec
+c3c39f7 Removed default_executable from gemspec creation
+67b6594 Undeprecated 'import'.
+2ee4ef7 Bumped to version 0.9.0
+33f89a9 Updated the release notes
+9142c80 updated changes
+c198186 Removed the 'equal timestamp' change comment, since it was out of date.
+e93cefd Require missing prerequisite
+375f8e5 Flatten test hierarchy by one level, change test namespace to include 'Rake' so we don't collide with other tests in ruby, change test file names to work with autotest.
+d7e09a7 Remove unused file
+a4cceae Move functional tests up to test/ and always run them
+fc94e50 Merge contrib tests with all tests.  Now there is only `rake test`
+16b0c94 Merge rake_test_setup with helper.
+0534fa5 Tests now inherit from Rake::TestCase instead of Test::Unit::TestCase so we no longer need to worry about polluting other tests in ruby
+0dba7c9 Switch rake's tests to minitest
+1c422db CHANGES file: remove obsolete DSL notes and clarify incompatible DSL change
+75c354f Merge pull request #36 from quix/explain-dsl
+cbce3c7 Make test file requires directory independent
+365bbc8 Remove duplicate "no longer"
+2d2859e Break multi-testcase files into single-testcase files for autotest
+1a6a4ca Try to load rake from RubyGems over rake from stdlib.
+9cbac8a bin/rake activates gem if possible
+63a899d make DSL methods private
+a6bbe19 remove rake/dsl -- top level DSL is now permanent
+50f2249 make DSL accessible through Object again, with warnings upon use
+b55c15f Bumped to version 0.9.1
+a643163 Fixed hard-coded version test.
+f73cde7 Improved deprecated DSL method warnings.
+0a1123f Tweeked deprecated DSL method warning.
+44aec3c Added 0.9.1 release notes
+5ec5694 Better name for dsl warning variable.
+86db710 Updated changes with DSL command changes.
+2c5b923 --no-deprecation-warnings should silence the rake/rdoctask deprecation warning
+c9fc379 included the DSL module in classes that use it
+108e41f Added missing 'do'
+acdfdc2 Merge pull request #48 from lorensr/patch-1
+0e6587e Now supporting Ruby 1.8.6 in Rake 0.9.x
+23e79f2 Added global DSL warning to list of warnings suppressed by --no-deprecate.
+0e4ad02 Bump to version 0.9.2
+b2a8487 Added 0.9.2 release notes.
+0c9f1d0 Merge pull request #47 from benilovj/master
+feb1afd Merge pull request #44 from danlucraft/fix-deprecation-option
+cd7ae75 Rake::TaskArguments kinda pretends to be a hash, but the most amazing method isn't working :(
+7cc47c9 Introduce the most awesome method on hash into Rake::TaskArguments :heart: :heart:
+98e8772 Remove InEnvironment from TestRakeApplication
+a119d1b Remove in_environment from test/test_rake_task_argument_parsing.rb
+26636b7 Remove in_environment from test_rake_application_options.rb
+c006142 Remove in_environment from test_rake_win32
+5124e95 Remove in_environment from test_rake_functional.rb
+972f592 Remove test/in_environment.rb
+08a1e8c Remove InEnvironment too to make tests pass
+a73fc7d Remove need for test/data
+0f09c35 Remove test/data
+164bd2f Fix failures on 1.8 and warnings on 1.9.3
+6816aae Silence warning when loading to test deprecated features
+dbe7247 `rvm gemdir` is the same as Gem.dir, right?
+2f25507 Make fileutils tests be non-directory-dependent
+8f02e23 Rake tests now create all files in a temporary directory
+900a782 Use the ruby we were run with, not some random ruby from $PATH
+b35fb3a Fix VERSION constant to work with tool/rbinstall.rb in trunk
+d1fd7b7 Merge pull request #39 from quix/activate-gem
+1770896 Merge pull request #52 from raggi/master
+7804ae3 Update README to remove version number and correct some discrepancies with reality
+f187817 Cleanup test names and implementations for test task
+3fbd677 Sort tests in test_rake_test_task
+962ee5b The rake test loaded needs to remove items from ARGV that it has handled.  Issue #51
+a774ef8 Load from rake test loader via an absolute path for ruby 1.8
+863547b Update CHANGES with recent additions
+d9dd16b Use refute_match from minitest
+d383d95 Use a sentinel value as the default for verbose_flag so nil and false mean silent like 0.8.7
+0c86956 The FileUtilsExt comment is a developer comment that shows up in ri, nerf it
+6e3c542 Hide the deprecated classic namespace from RDoc
+1bf0a8b Hide deprecated toplevel items and implementation details from RDoc
+928e0a2 Remove requirement of flexmock per Ruby bug #4987
+5654c9f Stop generating testdata, remove nonexistent files from clobber and package
+d8f2f65 commit miss
+412a19c Fix tests since test/unit is no longer required, fix shadowed variable warning
+3680bf6 Remove requirement for session gem from rake tests
+deba031 Ensure the latest minitest available is loaded
+88d0dd5 Always disable verbose mode
+5955117 Use EnvUtil to find ruby when running tests in trunk
+526c595 Use the ruby from EnvUtil in the fileutils tests
+13d9ef6 hardcoded 80 is used when app.unix? is false.  Ruby r32642 by naruse
+9efb73f remove root directory glob for rake package files
+c150beb new --reduce-compat option removes Module#const_missing and DeprecatedObjectDSL
+e16aae7 Test using the ruby install name instead of "ruby".  Ruby Bug #5114
+5842081 Fix test for windows.  Patch by usa from ruby trunk r32670
+5b1df80 Revert change that is not in rake 0.9.2
+3ce7534 Fix file_create definition
+b188607 directory DSL now behaves like other tasts
+ec4025b Removed unneeded wait variable.
+ac24187 Removed debugging statement.
+5fc927c Removed Commands from DeprecatedObjectDSL module
+0662e8f Updated CHANGES
+9c0d7e4 on error, show interesting portions of the backtrace by default
+47a0dfa Merge branch 'remove-root-glob' of git://github.com/quix/rake into glob
+5f3c7f5 Merge branch 'reduce-compat-option' of git://github.com/quix/rake into reduce-compat-option
+880c6fc Updated CHANGES
+2db1530 Bumped version to 0.9.3.beta.1
+f1e6fe0 Added 0.9.3 release notes.
+47c6d8a Minor updates to the README for 0.9.3.
+1b53296 add --suppress-backtrace option
+18f4919 suppress more backtrace lines using RbConfig info
+27bfc63 Test for directory DSL with fix
+4806dd9 Removed unneeded wait variable.
+23f06a6 Removed debugging statement.
+9401dc5 Removed Commands from DeprecatedObjectDSL module
+af09587 Updated CHANGES
+ffb7601 Bump to version 0.9.2.2
+e5f1b25 Remove an unused block argument to avoid creating Proc objects.
+a5e3bd8 * lib/rake/file_list.rb (Rake::FileList#egrep): there is no need to   open files in binary mode.   see more details in https://github.com/jimweirich/rake/issues/74
+951efa2 Fix incorrect line reported for rdoctask deprecation
+ea68e7e Move object copying code to initialize_copy method.
+82f3a6e task(name).clear clears description/comment
+e01bb8f + Added global :phony task with an epoch timestamp to help with unruly dependencies
+b61bbb5 Added test_file_times_new_depend_on_regular_task_timestamps
+8620a35 Bumped to dev version for 0.9.3.
+e90ce27 Add --backtrace option to see the backtrace without seing the trace.
+2d08827 stop using private constants
+89aed93 Propagate signals exceptions that terminate a TestTask subprocess.
+50f110a Fix "More Information" links in Readme
+9761c72 Make glob order alphabetical, not file-system dependent
+851f44b updated ignore list
+d677dac Added support for parameters to Multitask
+4f0e44b Added test for MultiTask + arguments
+137ba83 Tweek to trigger CI
+0ffa029 clean test for core should be case insensitive
+aef4446 Merge pull request #125 from michaeljbishop/multitask+args
+5e46fc7 Merge pull request #122 from joliss/glob-order
+b0bfa0e replace explicit dir sorting with call to sorted_glob
+bc7a36b rename sorted_glob to glob
+1f76d91 Merge pull request #121 from Elufimov/patch-1
+7618401 Merge pull request #118 from dylanahsmith/signal-failure
+bd3589c add test for signal propagation in testtask
+50218b0 Merge pull request #117 from tenderlove/opttable
+e42c52e Refactor the show_tasks option code into function and replace
+e19deb0 Remove a double whitespace I created
+f02a5f3 Make a the signal test verbose for CI debugging
+44906c5 more CI debugging
+1ee0669 signal test for CI
+7ed855c CI debugging
+2e400b4 remove dbg output, make signal test conditional
+b480e51 remove verbose output
+2e87bfd remove verbose option
+d533387 Merge branch 'refactor-tasks-options' of https://github.com/samphippen/rake into show
+96f63cd removed pesky @verbose flag again
+fc3f9d9 rename class method show_tasks_options to instance method select_tasks_to_show
+72ac132 add --all option to show task style options
+dfbd335 Merge branch 'add-backtrace' of https://github.com/grosser/rake into bt
+0b55c7a Merge branch 'master' of https://github.com/zenspider/rake into phony
+4e90201 add rake/phony.rb as an optional require
+d48dfdd ignore xxx_* files
+ea435bc Merge branch 'rc/clear-desc' of https://github.com/rctay/rake into cc
+6257dbd tweeked clear_comment test
+94d28c6 Merge pull request #96 from sergio-zharinov/cloneable
+f30298d Merge pull request #94 from sgronblo/patch-1
+225ed21 Merge pull request #87 from k-tsj/remove-unused-block-argument
+e8acbb1 Merge pull request #92 from rctay/rc/egrep-norb
+44e533b remove test that created root directory files on windows
+1737459 Added -j support to rake.
+a025a04 :ascii-8bit mode not supported in Ruby 1.8.x
+d47c9b2 ignoring xxx-* files
+2a9d3da make sure stdout is flushed when working with signals
+5198edc Ruby 1.8 fixes for loading phony in testing
+c246fd2 Use path separator for rakelibs
+a8bdcf0 Added test verifying results from the futures.
+198e98e Merge branch 'added-thread-pool-to-multitask' of https://github.com/michaeljbishop/rake into mjb-pool
+6d2cbda auto-sort options for output
+ae57582 reorder version the way I like it.
+51cb56d very minor test cleanup
+3a797bf whitespace removed
+bbf2da6 Merge branch 'mjb-pool'
+e4a9dcc Bump to version 0.9.3.beta.2
+c249a0a Added -m option which changes all tasks into multitasks
+9ffc9ee Small change to correct documentation for --execute-continue
+4885946 Updated documentation for ThreadPool.
+b28b7eb Removed some constants from rdoc generation
+70f2b26 Rake::ThreadPool has a more conservative interface.
+0902657 allow redirection of trace messages
+be58fd5 add select_trace_output method
+b299709 clean up select options methods
+b63f65a Add travis link to readme
+24cf8af Merge pull request #134 from michaeljbishop/master
+530b2e6 Merge branch 'dir-as-task' of https://github.com/zimbatm/rake into dir
+42fffd1 ret => result
+72cb99d mention OUT option on --trace and --backtrace
+efbe70a Merge branch 'dir'
+5fd132b Merge remote-tracking branch 'origin/master'
+b52daf1 Merge branch 'suppress-backtrace-option' of https://github.com/quix/rake into supress
+f234932 add add_rakelib to Rake module.
+b9c26a3 Merge branch 'added-thread-pool-to-multitask' of https://github.com/michaeljbishop/rake into pool
+5dcebba change STDERR to $stderr to conform to the rest of Rake usage.
+93ad875 minor comment reformatting
+7c777ff Merge branch 'all-tasks-are-multitasks' of https://github.com/michaeljbishop/rake into dashm
+5f6b9d0 change from string to array for result
+3dbf8fb whitespace cleanup
+5bf1abe Removed deprecated stuff
+6670a88 Bump to 10.0.0.beta.1
+a89a68d Added some instrumentation to retieve stats from the threadpool
+9578887 add explanatory comment for adding DSL commands to main
+6784b3a add thread pool statistics and history
+b853848 Merge branch 'master' into next-major-release
+e9530f7 warnings on private attr_readers?  Really?
+59425b4 better ordering of stat options
+cdd4d6c correctly display micro-seconds in job history
+eae594d test for thread_history_display
+b5161a9 Merge branch 'master' into next-major-release
+46d12f7 bump to rake-0.9.3.beta.3
+a1bd7f1 Merge branch 'master' into next-major-release
+07e46e7 release notes for 0.9.3
+7da641b ThreadPool is considered internal for now
+8440d4d updated command line docs for 0.9.3
+d345e98 Merge branch 'master' into next-major-release
+e82ffd2 update docs to reflect removed deprecations
+799d8e0 release notes for Rake 10
+bb41014 tweek wording in release notes.
+c0482b4 non-file tasks now always report current time as timestamp
+ac2665f bump to rake-10.0.0.beta.2
+363a5d6 sort job history before returning.
+2c04017 Merge branch 'master' of https://github.com/jimweirich/rake into no-sleep-thread-pool
+d02299d add build status link
+67e5c62 removed build status link, github's rdoc doesn't support image links
+25a402e Fixed the ThreadPool statistics code to maintain compatibility with 1.8.7.
+93d3144 Merge branch 'master' into no-sleep-thread-pool
+07272c4 ThreadPool threads no longer sleep on futures.
+2053d6b add private_reader support
+7387e11 Merge branch 'master' into next-major-release
+0e3ebf0 Sped up #stat sampling.
+bc546be Merge branch 'master' of https://github.com/michaeljbishop/rake into threadstats
+a467228 move dot to end of previous line
+841200e made the test less order dependent
+be8e4ad Merge branch 'no-sleep-thread-pool' of https://github.com/michaeljbishop/rake into newpool
+e768ae7 improve order independence in test
+1480e73 improve order independence in test
+cbd75c1 Update doc/release_notes/rake-10.0.0.rdoc
+8bf696d add promise_complete? method
+a3ed6a4 whitespace
+7d90f8b more with promise_complete?
+5afbc00 should use value for futures (not call)
+8dcd41a add comment to assert
+d658fc8 add ThreadPool::Promise
+57df3f4 de-lambda-fied the promise object.
+e2a4aef Fixed small bug in ThreadHistoryDisplay where it made a default :data value that should be a Hash.
+9ca0481 Changed statistics to read more like a sentence.
+02663c2 Removed inaccurate statistic about a thread awake.
+7c81a56 pull thread startup/shutdown into separate method
+4496b41 add .rbx directory to ignore list
+de88a99 use new process for testing.
+7c841a3 fix backtrace suppression for rubinius
+354d0a7 Merge branch 'newpool'
+954729c bump to 10.0.0.beta.4
+5ca134e Merge branch 'master' into next-major-release
+d2562fa require early time in Time extensions
+95ca347 require early time in Time extensions
+de9c35f Merge branch 'master' into next-major-release
+31ffd94 Use proper system path separator in test.
+caefbd3 Use skip rather than "puts WARNING:" when test can't be performed.
+be0164d Merge remote-tracking branch 'origin/master' into next-major-release
+42af1c0 Bump to 0.9.3
+00d3a81 Bump to 10.0.0
+dff09b4 Fix return status of failing tests.
+8edfcb4 Add nodoc to phony target def.
+698a549 Add FileList.glob to avoid unwanted dependency.
+438503b Move sorted glob to FileList
+80c81e5 Add require file_list to all files using FileList.glob.
+dbe695d Gentled the syntax for the phony task.
+6ed1b5d Removed old installation instructions from the README.
+19b64f1 Bump to version 0.9.4.
+89cb487 Merge fixes for 10.0.1
+b6e1c58 Update release notes for 0.9.4.
+6a7e337 Merge branch 'master' into next-major-release
+b843ee7 Update the 10.0.1 release doc.
+2312af6 Switched to a relative load of rake/phony for ruby integration
+04f4b85 Merge remote-tracking branch 'origin/master'
+839f704 Merge branch 'master' into next-major-release
+e82809b Fix trace swallowing task name arguments.
+ee003a5 Merge branch 'master' into next-major-release
+13dc28f Fix trace/backtrace swallowing task name arguments.
+9314efa Merge branch 'master' into next-major-release
+57a015d Fix reference to Dir.glob in Rake::FileList.glob
+ce88dc4 Merge pull request #146 from eregon/patch-1
+140bf95 Merge remote-tracking branch 'origin/master' into next-major-release
+2a11b0a Document options for --trace and --backtrace.
+3d8e3fa Fix typo: messing => missing
+4dc67be Merge remote-tracking branch 'origin/master' into next-major-release
+436b2e1 Remove (failing) italics in command line sample.
+34098ab Bump to version 0.9.5.
+0e3e6f6 Merge remote-tracking branch 'origin/master' into next-major-release
+76b6f66 release doc for 10.0.2.
+1b1bccb Bump to version 10.0.2.
+e20c5cb Removed GONE failure.
+137b09c Shadow system rake/rdoctask to avoid accidental inclusion.
+4f87251 Fix Application#trace which would interleave CR in a multi-threaded context.
+ca28316 Made arg passing to prerequisites consistent for Task+MultiTask.
+24fb9f3 Merge pull request #148 from michaeljbishop/trace-fix
+1bf04e1 Add specific trace testing.
+410858b Remove test that relies on random sleeps.
+699b78d Move trace heavy lifting to its own module.
+00de8d2 Merge remote-tracking branch 'origin/master' into next-major-release
+53181b1 Remove useless '|| value' in task names
+a5cc8d0 Merge branch 'multitask-args-fix' of https://github.com/michaeljbishop/rake into maf
+c95fbc7 Add test for new_scope in multitask.
+56bc6d4 Merge branch 'master' into next-major-release
+46f58e3 Add gempackagetask.rb back to shadow accidental inclusion from system.
+16b2b2c Add contrib/sys.rb back to shadow accidental inclusion from system.
+4d22f6c Remove early return from deprecate.
+d71d8c5 Added support for variable-length task arguments
+f201565 Removed unused setting of REDUCE_COMPAT.
+b9df816 Use version string for ruby install compatibility
+7f9edaf Don't use PWD to load libraries
+35ac8c8 Removed trailing whitespace
+767f7ed Removed executable bits
+169fa50 Merge remote-tracking branch 'origin/master' into next-major-release
+fc8c5b6 Skip backtrace tests when tmpdir is in the suppressed pattern
+e4fdc12 Merge remote-tracking branch 'origin/master' into next-major-release
+a5242af Skip exit code test in Ruby 1.8.
+31d5cdc Switch to the :rake test task method.
+dfa8238 Merge branch 'master' into next-major-release
+1e590aa Add uncertain_exit_status? function.
+9686827 Use ruby provided by ruby's tests
+7fbe432 Merge remote-tracking branch 'origin/master' into next-major-release
+18422d4 Bump to version 0.9.6.
+530e751 Release notes for 0.9.6.
+976132c Merge branch 'master' into next-major-release
+2b0e29e Bump to 10.0.3 and add release docs.
+6dbb8cd handle nil objects in the output strings so the correct stack trace can be shown
+8474318 Fixed unusued variable warnings
+8dfe2d8 Tiny example fix in rakefile.rdoc
+7df9e67 Merge pull request #159 from dancar/master
+91e1d4a Merge remote-tracking branch 'origin/master' into next-major-release
+d2e3f76 Remove commented code.
+90d8a89 Fix hypothetical Java example
+9b649cc Correcting PseudoStatus namespace in rake/file_utils.rb
+0f586d1 Do not run RDoc on project.rake
+b0a62b9 Merge pull request #161 from mnoble/pseudo_status_is_under_rake
+7bfa0f6 Merge pull request #160 from mmorearty/patch-1
+85fcaa6 Add reference to release_notes in CHANGES.
+3677a9b Merge branch 'master' of https://github.com/MingStar/rake into niltrace
+3fb4d20 Tracing nil objects is ok.
+4188f96 Merge branch 'next-major-release'
+5f4ca05 Typo: 'should be used with cation' for 'caution'
+843d21f Merge pull request #163 from elgalu/patch-1
+f89591b Add build status image.
+240a8dc Another attempt at images in readme.
+10f64d4 Bare link?
+821b288 Fake out the link?
+0d0d816 Give up on build status image.
+d610618 added multiline flag to collect_tasks RegEx: it allows to pass multiline ENV arguments
+12dfa74 add license information to gemspec
+f2978ad Merge pull request #166 from jordimassaguerpla/master
+22f3711 Remove obsolete global var references.
+eb374ff Better error messages on tests.
+0b1d3da All flog/flag rake tasks.
+0f413d8 Improve silent/quiet/verbose tests.
+886ed91 Merge pull request #165 from ddnexus/master
+5b83533 Add test for multiline env variable.
+e963112 convert win32 directory separator "\\" to "/".
+080987c Add Rake::Task#prerequisite_tasks!
+396a64a Add comments to Rake::Task#prerequisite_tasks!
+d82bbef Merge pull request #167 from windwiny/patch-1
+39f29de add Rakefile Path section to rakefile.rdoc
+1141150 about environment variable persistance in doc
+dbb37d6 fix my own typos
+0a7deb4 fix example
+ffa00ba Do NOT duplicate arguments in a future.
+605c397 Merge branch 'docs' of https://github.com/CLUSTERfoo/rake into docs
+365df37 Minor tweeks to rakefile document changes.
+5a6fcf7 Add travis CI config file.
+7719675 Disable CI builds that aren't working (for now).
+2bfc48f New implementation without duplicates
+d261e9f Merge branch 'deep_prerequisite_tasks' of https://github.com/jasoares/rake into prereq2
+b282318 Remove unneeded "unless".
+a3e9a02 Switch to hash for recording already seen tasks in all_prerequisite_tasks.
+e49ad37 Ooops. Missed a name change.
+ebdd78a remove next
+010fc0f Merge pull request #179 from vipulnsward/fix_next
+4084505 Use custom error in test.
+2d5c661 Align assignments.
+bc0d781 ruby 1.8.6 support
+1ce466e Update Copyright / Now require >= 1.8.7
+b6c1bf7 Merge pull request #181 from superp/master
+c6b61c3 Exception exits now use exit_because_of_exception.
+e00fdbe Default task name is now override-able.
+ea90600 Bump to 10.0.4
+5cbfa1a Removed uselless begin and end for exception inside the method
+e324b59 Merge pull request #182 from jetthoughts/simplify-method
+24560a8 change each_with_index to each; Remove exception var
+0784220 Pass arguments to rule tasks
+278787d Delete commented out code.
+e38262a Add rubocop config
+6afb26a Recommended style guide fixes.
+7961fcc Bumped up line length a bit.
+9d09be7 Applied style guide to tests.
+a05a591 Remove to_a from the MUST_DEFINE list.
+416ade8 Merge branch 'master' of https://github.com/dennisjbell/rake into extraargs
+5c131e4 Code cleanup
+186a842 Bump to 10.1.0.0
+b77ca0f Added 'beta' to version number to clarify.
+301216a Fix backslash replacement on suppressed backtrace patterns.
+1437f5c Bumped to 10.1.0.beta.1
+a2e6148 Merge branch 'rules_with_args' of https://github.com/jswanner/rake into rules
+066a389 Add parens to disambiguate
+ade6d18 Rename exclude? => excluded_from_list? (in FileList).
+49da0cf Remove comment= method.
+b701c1a Comment refactoring
+7a796bc Full comments separated by new lines.
+26068fe Update comment on "desc" regarding duplicates.
+c9886cf Added linked list class.
+0f868d7 Reimplement invocation chain with generic linked list.
+e063174 Switch from Array to Scope for scope tracking.
+cc2974d Fixed toggle to work for rake
+f7ea021 Use conj and cons as base operations.
+111feef Clean up some test names
+e43e664 Handle test_rake_* in toggle.
+15c574b Normalize some test file names.
+71d53a6 Add trim to scope
+b7ba3bb Linked list cleanup
+ba21805 Bump to 10.1.0.beta.2
+f4ed5a6 Add comment= back (used by rail ties).
+e5e70eb Typo on the name of packagetask module replacing gempackagetask
+157e5cc Merge pull request #195 from rafaelrosafu/master
+bc5c7ab read file
+bb13997 use tmpfile
+6c74937 Changed docs to use "import" rather than "Rake.import".
+6877b28 Merge pull request #196 from stuartnelson3/read-install-file
+71710b1 Merge pull request #197 from stuartnelson3/temp-file-refactor
+6ed4439 clean and clobber now report file removal failures.
+379f988 Move ruby running code into RubyRunner (for testing)
+33048ea Create test/support directory
+6485266 Fix typo in command line usage
+f3176b1 Change the OptParser banner to use Rake.application.name
+66fcf9f Merge pull request #204 from capistrano/master
+0033a88 Add 10.1.0 release docs.
+ddea884 Renable JRuby in CI setup.
+acbb006 Bump to version 10.1.0.
+84a9184 Bump to 10.1.1.beta.1
+492177f Allow -j1
+56b44c9 Fix pool size tests.
+95514fa Add CPU count autodetect.
+ecdcbc9 Use suggested thread count when no -j is given.
+bfa3218 Use suggested thread count for max number of threads
+a850537 --jobs is now unlimited
+20a1f41 Fix some typos
+b6a6ec9 Merge pull request #206 from vipulnsward/some_typos
+586bd51 Regenerate and reload any imported files.
+514da2c Cleanup for 1.8.7 syntax.
+c4d1bbd Re-enable 1.8.7 in travis.
+86f10cf Merge remote-tracking branch 'origin/master'
+ca2d7cc Add rake to Gemfile.
+aab4faf Don't invoke system rake on travis.
+2ab8410 Pull option list into constant.
+db9dded Improved pathmap comment.
+55c95d7 Add -m to flog rake task.
+3754a76 Revert "Pull option list into constant."
+2b1bea5 Corrects typo in deprecation error
+885b44c Merge pull request #212 from alindeman/package-task
+033e85b Make Task#source default to the first prerequisite in non-rule tasks.
+f6ba31f Enable rules to accept Method object as prerequisites.
+c35b5ab Merge pull request #216 from avdi/rules-accept-method-prereqs
+20ea305 Tweeked some readme URLs.
+7671e96 Update links to other make-like projects.
+b28511d Change umlcoop to linode.
+eee2cf3 Better rake task argument parser that accepts commas in argument values
+5bcfa9c Improve Rake::DSL method documentation
+5c6c01d Make #sources a synonym for #prerequisites if @sources isn't set.
+2c54fab code format
+da23e21 code format
+acf4328 Fix typo in documentation
+fb7d1e4 making description overridable for Rake::TestTask
+5db6af4 Handle assigning nils to comments
+34f3bfd Prevent nil comments from entering the comment list
+b0c5a25 Restrict rake to minitest ~> 4
+d212fd7 Use require_relative for test/support/*
+ea834c6 Fix rake.1.gz. It was corrupted.
+7f79c13 remove unneeded files
+72719ab Merge pull request #227 from sch0rsch/remove-unneeded-file
+75cb123 Don't include rake directory in the load path if it's a default gem
+554396a Merge pull request #228 from spastorino/rake_default_gem
+b1562e6 Fixed double phrase typo
+59a852e Merge pull request #229 from danielholmes/patch-1
+88bd4ce Keep the space after the "!" operator
+387c8a4 Merge pull request #230 from xprayc/master
+ae56178 Fix a test failure on Windows
+0205cb0 Completed namespaced task definitions
+e024abf added important bit of info from docs
+a286ed9 Merge pull request #233 from odigity/master
+990876a Made a correction to the documentation, explaining how to call tasks with arguments when the arguments contain spaces
+41538f6 TaskArgument responds to has_key?
+6a4d229 Merge pull request #239 from wwkeyboard/master
+bfafc3a Rename collect_tasks to collect_command_line_tasks
+4709e80 Fix doc typo
+7fe224b Fix explanation of directory method in the rakefile.doc
+fe10ff8 Remove RubyForge links.
+7fe3a40 Remove rubyforge references in gem spec
+a3e5c2c Remove rubyforge references in gem spec
+4f139fa Remove RubyForge links.
+32a17cb Fix syntax error in rakefile
+4b75f99 Merge tag 'rake-10.1.1'
+a785f1b Add Ruby 2.1.0 to .travis.yml
+19564ef Disable the minitest dependency
+d91f9bb Only require minitest in Rubys prior to 2.0
+93c4491 Dropping 1.8.7 from travis
+e025026 Updated Gem::Specification to require Ruby >= 1.9
+5e401c9 Remove unfinished portion of sentence
+555f445 fix typo at https://github.com/ruby/ruby/pull/500
+db5ebee Clarify rake -f usage.
+90a27e5 Add build_all capability.
+49a120a Merge pull request #245 from ka8725/fix_readme_for_rakefile
+a5990c6 Merge pull request #249 from kintamanimatt/master
+9d63d87 Merge pull request #242 from amatsuda/prefered
+227037e Remove __thread__ method
+5ac9df0 Fix race condition in thread pool.
+fbb22e7 Add display of cause exception.
+000928e Allow the exception/cause test to work with older Rubies.
+6e50eab Don't display RuntimeError class names in error messages
+fa694ec Fix unused variable warning
+a7c748e Refactor: ExtractMethod on display_exception methods
+336559f Refactor ARGV setup into setup_command_line method.
+e779cd4 Update rakefile.rdoc
+3e803ce Merge pull request #256 from valera-rozuvan/patch-1
+6ff9675 Track future history in History.rdoc
+084d967 Merge pull request #252 from mpfz0r/master
+9553789 Add #252 to History
+6315114 Add #251 to History
+ab8f674 Merge pull request #250 from hsbt/fix-typo
+a225ea8 Merge pull request #247 from parndt/patch-1
+ab0422a Merge pull request #235 from lookitup4me/UpdatingReadme
+334256a Add #250 to History
+8088ef9 Add #247 to History
+2b5ff23 Add #235 to History
+8581b9b Merge pull request #232 from nyarly/namespaced_task_definition
+9aaadc8 Add #252 to History
+b118535 Merge pull request #231 from shirosaki/fix_test
+c7007d5 Add #231 to History
+59b48d1 Merge pull request #225 from michelboaventura/master
+5586b6c Added #225 to History
+dd484f7 Merge pull request #215 from avdi/source-defaults-to-first-prerequisite
+20bb479 Merge pull request #209 from randycoulman/regenerate_imports
+8053d28 Add #215 to History
+7a84d67 Add #209 to History
+5b1059d Fix bug in can_detect_signals?
+45fb9e4 Remove require 'rubygems' as it's always available
+7c81dfe Remove rcov tasks
+1f4a6e4 Remove unused plugin method
+cfea0c4 Remove where_am_i task
+828162a Remove failure, really_fail tasks
+7387c6d Remove loading of publish and xforge rakefiles
+076e348 Remove unused noop task
+cf361fd Remove svn-specific release tasks
+3f2e763 Remove direct install capability
+8d4a978 Remove rdoc existence checks
+83ced24 There are no CVS tasks anymore
+2909dc0 Switch to hoe
+ff8a401 Remove support tasks
+0e80c36 Remove flog/flay tasks
+907e5e8 Remove tags task
+dadaeb5 Update manifest for rakelib removals
+2872763 Remove rake.blurb because I don't know what it is
+120642a Remove ancient TODO
+ba6e66d Move old CHANGES file to doc/ to avoid confusion
+60b1bd6 hoe automatically creates .gemtest in packages
+ceb06bf Remove patch and xxx- files from .gitignore
+e3c1f6e Send travis notifications to me
+3c0cbfd Use hoe-travis plugin for travis-ci
+a2dd2f8 Code optimization
+dd906f3 Merge pull request #214 from fhrbek/better_argument_parser
+70f232f Use the power of regexp to replace #strip
+5db0bae Use regexp capture groups over matchdata
+9d47d2f Use gsub properly
+779fba3 Use named captures for parsing task arguments
+695e5dc Fail early from parse_task_string
+3564146 Reduce work in parsing task arguments
+93be48d Fit to 80 columns and remove superfluous comments
+6e0acb6 Fail early in task argument parsing (again)
+1bee061 Add #214 to History
+3ade6f9 Force use of minitest 4.x
+f68910e Revert use of named captures in loop
+33a3526 Deprecate Rake.run_tests
+5b280cf Test Rake::CpuCounter#in_path_command
+7d8f96b Safely check for commands in the path
+a8f90cf Test CpuCounter#run
+ecc113a Extract with_ruby_in_path in CpuCounter test
+0d24bdc Remove interpolation in `` in CpuCounter#run
+c251def Jim planned to remove 1.8 support with Rake 10.2
+bc81108 Merge pull request #260 from zzak/history_typo
+1648280 Add #260 to History
+6cc416f Ignore rdoc tags cache directory
+0040e8c Use newfangled hash syntax with %w[]
+007494e Reduce use of HTML-style markup
+f5edebc Mark Rake::AltSystem for deprecation
+f3a6f6b Hide internal methods in Rake::Application
+9e74410 Use Ruby 2 hash syntax in task examples
+c62e480 Do not mention deprecated runtests
+44b19f6 Document Rake::EarlyTime methods
+1aa8d43 Hide Module#rake_extension from rdoc
+e76f368 Mark rake/ext/module.rb for removal
+76cf38d Clean up Rake string extension documentation
+4ee119a Ignore Time extensions in documentation
+3c0d069 Improve Rake::FileList documentation
+3e7c8d1 Improve FileTask documentation formatting
+3a28037 Marke rake/gempackagetask for removal in Rake 11
+83bc28f Clean up formatting of InvocationChain documentation
+3dd8987 Improve documentation of Rake::PackageTask
+15f236a Remove headings from examples
+f804fc2 Mark rake/pathmap for removal in Rake 11
+3520b83 Document rake/phony in doc/rakefile.rdoc
+a47179f Hide Rake::Win32 from documentation
+38e66f3 Hide Rake::TraceOutput from documentation
+05b1891 Hide Rake::ThreadPool from documentation
+0f772c4 Hide some TestTask methods from documentation
+aade116 Mark TaskLib#paste for removal in Rake 11
+b250e28 Hide methods in TaskManager from documentation
+cd0afe3 Improve TaskArguments documentation
+5266bfe Hide Task methods from documentation
+01b24d9 Hide Rake::Backtrace from documentation
+5e59bcc Hide Scope from documentation
+e25f9f5 Hide TODO in Rake.run_tests
+3615021 Mark the 1.8.2 test/unit fix for removal in Rake 11
+9916fa9 Mark rake/rdoctask for removal in Rake 11
+ef8c32b Improve Rake module function documentation
+027ee1b Hide PseudoStatus from documentation
+dfb8976 Improve DefaultLoader documentation
+e650b89 Hide CpuCounter from documentation
+54812dc Mark rake/contrib/sys for removal in Rake 11
+cb0853a Mark RubyForgePublisher for removal in Rake 11
+81a9cd5 Document the clean and clobber tasks in rakefile.rdoc
+3e8bc14 Hide Cloneable from documentation
+ad56de0 Hide FTP upload tools from documentation
+0b553d5 Hide duplication in contrib/publisher from documentation
+bbdb38c Remove non-0.9.6 entries
+8894d84 Remove non-0.9.5 entries
+ddfe16b Remove non-0.9.4 entries
+d18a6de Fix version for 0.9.2.2 release notes
+2f57bb9 Remove non-0.8.5 entries
+3076211 Fix version in 0.5.4 release notes
+e51fcc5 Fix version in 0.5.3 release notes
+f5a2cc2 Remove non-10.0.2 entries
+6047e61 Improve consistency of headings
+87731bf Merge CHANGES.rdoc and History.rdoc
+fec34a6 Update Manifest for CHANGES.rdoc removal
+2800ea8 Mark RAKEVERSION for deletion
+ff1b45c Set release date
+d59ddae Publish rake docs to seattlerb.org for now
+02e328f Include README.rdoc in rdoc files list
+0fc5914 Fix version in History
+1a6489b CpuCounter: use count_via_sysctl for all bsd's
+667d39d Merge pull request #261 from jcs/patch-1
+86bce3a Add #261 to History
+3a5b4c2 Add .autotest for legacy minitest
+5ea79c0 Keep file tasks with ':' at top level
+02a5801 Fix count_via_win32 on non-win32
+77e4b51 Note that CPU detection is fixed for other unknowns
+699db45 Reorder history by importance
+ffb434b Set release version and date
+2b1a8b0 Use 1.8-compatible way of loading helper
+8955158 Use 1.8-compatible regexp
+8d765f8 Use Open3 for 1.8 compatibility
+5fc420b Force parse task string to a string
+0b545e0 Re-enable 1.8.7 on travis as the tests pass now
+d18c31e JRuby does not fail on travis now
+3cbf186 Remove redundant Gemfile.  Use `rake newb`
+e745e3f Force-install minitest
+61eb0a2 Restore 1.8.7 compatibility in gemspec
+f7b4147 Set release version
+cf68db1 Remove Gemfile from Manifest
+0c375db Add git plugin for tag signing
+393148d Add Rake::NameSpace#scope.
+9f13463 Clean up documentation and a typo
+104058e Undent rake/name_space.rb
+561f1ff Merge pull request #254 from andyg0808/master
+bef5808 Add focused FileTask#needed? tests
+d7bf4eb Add test for #254
+e47621d Add #254 to History
+bb75fec Suppress org.ruby package files for JRuby
+dae4dcf Don't report an error when cleaning missing files
+9d8428a Be smarter about determining whether the file is already gone
+101cfd6 Use `private_class_method` instead of private
+0c8b2d0 fix typo in comment
+8dd3eed Merge pull request #267 from Elffers/master
+0ee61ef Merge pull request #266 from randycoulman/clean-missing-files
+0f1afaf Add #267 to History
+7875647 Add #266 to History
+3b71b96 Read stderr from cpu count command to avoid hang
+79bfa0f Set release version and date
+ae8accb Set release version to 10.3 due to new features
+355c604 _Really_ don't report an error when cleaning already-deleted files.
+9c13b15 Mark `cant_be_deleted?` as a private class method
+41f46fb Merge pull request #269 from randycoulman/really-clean-missing-files
+ddfe2e3 Add #269 to History
+c2d9edc Fix infinite loop when cleaning files on windows
+f4524d5 Update version for release
+164ae0f Cleanup README and split out CONTRIBUTING
+68248be Add Avdi Grimm's rake series to README
+4af98fe Add travis-ci link to CONTRIBUTING
+cf50f41 Cleanup README links
+59fa734 Reorder
+8398cd8 Move More Information to Resources
+fddc5e9 Allow travis to fail on jruby
+67018c7 Remove copyright dates from license
+9eef57a Allow transparent use of Pathnames
+ebf1f92 Support the `ext` and `pathmap` extensions on Pathnames.
+3e19ef8 Ignore falsey dependencies
+92f4492 Test display_exception_details
+3a8f06f Test display_exception_details with causes
+57c932c Prevent infinite recursion via Exception#cause
+242a8c2 Fix some typos
+002f660 Merge pull request #275 from jwworth/task/improve_documentation
+6ccd20c Add #275 to History
+92dfb1e Set release version and date
+56dd224 Point to github/ruby/rake
+c1718ed Add Avdi Grimm's rake episodes 5–7 to README
+989f618 backport from ruby/ruby
+f2ecec8 Use array-form sh arguments in PackageTask
+c9429a7 Use array-form sh arguments in SshPublisher
+803c652 Use array-form sh arguments in DSL documentation
+752839c Improve FileUtils#sh documentation
+11a4d02 Fix some typos
+1131cc4 Update cpu_counter.rb
+76e6343 Merge pull request #1 from zzak/master
+79a368e Merge pull request #2 from hsbt/backport-from-ruby-trunk
+0d6dcd7 backport r43265 from ruby/ruby
+f0121b3 Merge pull request #280 from jedcn/master
+196c943 Add #280 to History
+5be55e5 Merge pull request #282 from edouardb/patch-1
+f374191 Add #282 to History
+3a2943e backport r46890 from ruby/ruby trunk
+f3f53f3 FileTask: Return a late timestamp instead of an early timestamp if the file does not exist.  This should fix issue #286.
+6f62942 Update our monkey patch of Time#<=> to consider Rake::LateTime. This makes the tests pass on Ruby 1.8.7.
+b6854e6 backport r47199 from ruby/ruby trunk.
+bc3bde9 backport r47200 from ruby/ruby trunk.
+db8ccee backport r47299 from ruby/ruby trunk.
+c136ebd better manpage
+727c637 removed old manpage
+da1c413 Document argument parsing change in test
+91af693 Allow transparent use of Pathnames
+66e495a Support the `ext` and `pathmap` extensions on Pathnames.
+e47d023 handled load failure for minitest4, backport from ruby/ruby trunk.
+5fc3fe0 Add #271 to History
+b769417 backport r48127 from ruby/ruby trunk.
+ba30283 add b76941 to History.
+087e0c1 backport r48279 from ruby/ruby trunk
+86519af Merge pull request #291 from skittleys/master
+f0a96a7 Add #291 to History
+f71fe95 Merge pull request #287 from DavidEGrayson/pull_request_1
+019b10d Add #286, #287 to History
+a57262e Upgrade minitest
+f6ff5df Replace `MiniTest::Unit::TestCase` with `Minitest::Test`
+0a72fe9 Merge branch 'teoljungberg-minitest-5'
+32d4497 Add #292 to History
+020a372 Merge pull request #271 from randycoulman/support-pathname
+94c2b2c Add #271 to History
+09dee4d Merge pull request #273 from mx4492/ignore-falsey-dependencies
+19e3d52 Add #273 to History
+f63bf26 Update Manifest
+ffda9d6 Prevent useless relinking when packaging
+a36505d Stop editing ARGV
+7d4c517 Add #283 to History
+87934af Use https://github.com/ruby/rake

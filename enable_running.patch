@@ -1,0 +1,39 @@
+diff --git a/rake/lib/rake/clean.rb b/rake/lib/rake/clean.rb
+index 422af57..aae9fef 100644
+--- a/rake/lib/rake/clean.rb
++++ b/rake/lib/rake/clean.rb
+@@ -1,7 +1,7 @@
+ #!/usr/bin/env ruby
+ 
+ require 'rake'
+-require 'rake/filematcher'
++require_relative './filematcher'
+ 
+ CLEAN = Rake::FileMatcher.new
+ CLEAN.glob("**/*~", "**/*.bak", "**/core")
+diff --git a/rake/test/testclean.rb b/rake/test/testclean.rb
+index 77546f1..7a825b7 100644
+--- a/rake/test/testclean.rb
++++ b/rake/test/testclean.rb
+@@ -1,7 +1,7 @@
+ #!/usr/bin/env ruby
+ 
+ require 'test/unit'
+-require 'rake/clean'
++require_relative '../lib/rake/clean'
+ 
+ class TestClean < Test::Unit::TestCase
+   def test_clean
+diff --git a/rake/test/testfilelist.rb b/rake/test/testfilelist.rb
+index 40ad1fb..7aaf705 100644
+--- a/rake/test/testfilelist.rb
++++ b/rake/test/testfilelist.rb
+@@ -1,7 +1,7 @@
+ #!/usr/bin/env ruby
+ 
+ require 'test/unit'
+-require 'rake/filelist'
++require_relative '../lib/rake/filelist.rb'
+ 
+ class TestFileList < Test::Unit::TestCase
+   def test_create
