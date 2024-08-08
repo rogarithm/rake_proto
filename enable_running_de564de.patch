@@ -1,0 +1,39 @@
+diff --git a/rake/install.rb b/rake/install.rb
+index ca84337..3c641c3 100644
+--- a/rake/install.rb
++++ b/rake/install.rb
+@@ -3,7 +3,7 @@ require 'find'
+ require 'ftools'
+ require 'lib/rake/indir'
+ 
+-include Config
++include RbConfig
+ 
+ $ruby = CONFIG['ruby_install_name']
+ 
+diff --git a/rake/lib/rake.rb b/rake/lib/rake.rb
+index 12c3a6c..0b6aa04 100755
+--- a/rake/lib/rake.rb
++++ b/rake/lib/rake.rb
+@@ -275,7 +275,7 @@ end
+ # +verbose+ and +quiet+ methods.
+ #
+ module RakeTools
+-  RUBY = Config::CONFIG['ruby_install_name']
++  RUBY = RbConfig::CONFIG['ruby_install_name']
+ 
+   # Install all the files matching +wildcard+ into the +dest_dir+
+   # directory.  The permission mode is set to +mode+.
+diff --git a/rake/test/testfilematcher.rb b/rake/test/testfilematcher.rb
+index 144834b..56a6048 100644
+--- a/rake/test/testfilematcher.rb
++++ b/rake/test/testfilematcher.rb
+@@ -24,7 +24,7 @@ class TestFileMatcher < Test::Unit::TestCase
+ 
+   def test_match_files
+     @matcher.add_matching(DIRPAT)
+-    assert @@test_files.sort, @matcher.files.sort
++    assert_equal @@test_files.sort, @matcher.files.sort
+   end
+ 
+   def test_each
