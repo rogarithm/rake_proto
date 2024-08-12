@@ -37,3 +37,29 @@ index 144834b..56a6048 100644
    end
  
    def test_each
+diff --git a/rake/test/testtask.rb b/rake/test/testtask.rb
+index 3caf3c6..5b32673 100644
+--- a/rake/test/testtask.rb
++++ b/rake/test/testtask.rb
+@@ -14,7 +14,7 @@ class TestTask < Test::Unit::TestCase
+     arg = nil
+     t = Task.lookup(:name).enhance { |task| arg = task; 1234 }
+     assert_equal "name", t.name
+-    assert [], t.prerequisites
++    assert_equal [], t.prerequisites
+     assert t.needed?
+     t.execute
+     assert_equal t, arg
+@@ -134,9 +134,9 @@ class TestDirectoryTask < Test::Unit::TestCase
+ 
+   def test_create
+     directory "testdata/a/b/c"
+-    assert FileTask, Task["testdata"].class
+-    assert FileTask, Task["testdata/a"].class
+-    assert FileTask, Task["testdata/a/b/c"].class
++    assert_equal FileTask, Task["testdata"].class
++    assert_equal FileTask, Task["testdata/a"].class
++    assert_equal FileTask, Task["testdata/a/b/c"].class
+     Task['testdata/a/b'].invoke
+     assert File.exist?("testdata/a/b")
+     assert ! File.exist?("testdata/a/b/c")
