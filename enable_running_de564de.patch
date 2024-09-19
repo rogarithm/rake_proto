@@ -24,10 +24,44 @@ index 12c3a6c..0b6aa04 100755
  
    # Install all the files matching +wildcard+ into the +dest_dir+
    # directory.  The permission mode is set to +mode+.
+diff --git a/rake/lib/rake/filematcher.rb b/rake/lib/rake/filematcher.rb
+index ddb9f0e..c9d0afa 100644
+--- a/rake/lib/rake/filematcher.rb
++++ b/rake/lib/rake/filematcher.rb
+@@ -1,6 +1,6 @@
+ #!/usr/bin/env ruby
+ 
+-require 'rake/filelist'
++require_relative './filelist'
+ 
+ module Rake
+   class FileMatcher
+diff --git a/rake/test/testfilelist.rb b/rake/test/testfilelist.rb
+index 40ad1fb..37631b5 100644
+--- a/rake/test/testfilelist.rb
++++ b/rake/test/testfilelist.rb
+@@ -1,7 +1,7 @@
+ #!/usr/bin/env ruby
+ 
+ require 'test/unit'
+-require 'rake/filelist'
++require_relative '../lib/rake/filelist'
+ 
+ class TestFileList < Test::Unit::TestCase
+   def test_create
 diff --git a/rake/test/testfilematcher.rb b/rake/test/testfilematcher.rb
-index 144834b..56a6048 100644
+index 144834b..db86fbe 100644
 --- a/rake/test/testfilematcher.rb
 +++ b/rake/test/testfilematcher.rb
+@@ -1,7 +1,7 @@
+ #!/usr/bin/env ruby
+ 
+ require 'test/unit'
+-require 'rake/filematcher'
++require_relative '../lib/rake/filematcher'
+ 
+ class TestFileMatcher < Test::Unit::TestCase
+   DIRPAT = 'test/test*.rb'
 @@ -24,7 +24,7 @@ class TestFileMatcher < Test::Unit::TestCase
  
    def test_match_files
@@ -37,3 +71,84 @@ index 144834b..56a6048 100644
    end
  
    def test_each
+diff --git a/rake/test/testftp.rb b/rake/test/testftp.rb
+index fdfb1b6..e27722f 100644
+--- a/rake/test/testftp.rb
++++ b/rake/test/testftp.rb
+@@ -2,7 +2,7 @@
+ 
+ require 'date'
+ require 'test/unit'
+-require 'rake/ftptools'
++require_relative '../lib/rake/ftptools'
+ 
+ class TestFtpFile < Test::Unit::TestCase
+ 
+@@ -14,7 +14,7 @@ class TestFtpFile < Test::Unit::TestCase
+     assert_equal "develop", file.group
+     assert_equal 0644, file.mode
+     assert_equal 121770, file.size
+-    assert_equal Time.mktime(2003,3,6,14,50,0,0), file.time
++    assert_equal Time.mktime(2024,3,6,14,50,0,0), file.time
+     assert ! file.directory?
+     assert ! file.symlink?
+   end
+@@ -26,7 +26,7 @@ class TestFtpFile < Test::Unit::TestCase
+ 
+   def test_close_date
+     file = Rake::FtpFile.new(".", "drwxr-xr-x   3 a279376  develop     4096 Nov 26 15:35 vss")
+-    assert_equal Time.mktime(2002,11,26,15,35,0,0), file.time
++    assert_equal Time.mktime(2024,11,26,15,35,0,0), file.time
+   end
+ 
+   def test_directory
+diff --git a/rake/test/testsys.rb b/rake/test/testsys.rb
+index 9d3f8a6..50c0ad0 100644
+--- a/rake/test/testsys.rb
++++ b/rake/test/testsys.rb
+@@ -1,6 +1,8 @@
+ #!/usr/bin/env ruby
+ 
+ require 'test/unit'
++require_relative './filecreation'
++require_relative '../lib/rake'
+ 
+ class TestSys < Test::Unit::TestCase
+   include FileCreation
+diff --git a/rake/test/testtask.rb b/rake/test/testtask.rb
+index 3caf3c6..6ea92a9 100644
+--- a/rake/test/testtask.rb
++++ b/rake/test/testtask.rb
+@@ -1,8 +1,8 @@
+ #!/usr/bin/env ruby
+ 
+ require 'test/unit'
+-require 'rake'
+-require 'test/filecreation'
++require_relative '../lib/rake'
++require_relative './filecreation'
+ 
+ ######################################################################
+ class TestTask < Test::Unit::TestCase
+@@ -14,7 +14,7 @@ class TestTask < Test::Unit::TestCase
+     arg = nil
+     t = Task.lookup(:name).enhance { |task| arg = task; 1234 }
+     assert_equal "name", t.name
+-    assert [], t.prerequisites
++    assert_equal [], t.prerequisites
+     assert t.needed?
+     t.execute
+     assert_equal t, arg
+@@ -134,9 +134,9 @@ class TestDirectoryTask < Test::Unit::TestCase
+ 
+   def test_create
+     directory "testdata/a/b/c"
+-    assert FileTask, Task["testdata"].class
+-    assert FileTask, Task["testdata/a"].class
+-    assert FileTask, Task["testdata/a/b/c"].class
++    assert_equal FileTask, Task["testdata"].class
++    assert_equal FileTask, Task["testdata/a"].class
++    assert_equal FileTask, Task["testdata/a/b/c"].class
+     Task['testdata/a/b'].invoke
+     assert File.exist?("testdata/a/b")
+     assert ! File.exist?("testdata/a/b/c")
