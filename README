@@ -1,0 +1,31 @@
+- configure ruby in intellij
+=> 기존 모듈은 java로 설정되어 있으므로 삭제하고 다시 import해야 한다
+=> https://stackoverflow.com/questions/35170575/how-do-i-setup-the-ruby-sdk-in-intellij-idea
+
+- module 소스 위치 찾기
+=> module 이름이 Foo라고 할 때, `$LOADED_FEATURES.select { |file| File.read(file).include?('module Foo') rescue false }`
+=> https://stackoverflow.com/a/22667016
+
+- `require 'rbconfig'`
+=> `sub(/Config/, 'RbConfig')`
+=> 루비 2.7.2 버전에서는 Config 상수가 RbConfig로 바뀌었다
+
+- Uninitialized constant error
+=> require 구문이 제대로 작동하는지 확인하고, 고쳐도 안되면 require_relative로 변경한다
+=> https://stackoverflow.com/a/29133393
+
+- gem 소스 파일 위치 찾기
+=> gem 이름이 foo라고 하면, `gem which foo` 로 찾을 수 있다
+=> https://stackoverflow.com/a/31540740
+
+- load_path 변경하기
+=> require할 모듈이 $:load_path에 없어서 테스트 실행이 안되는 경우 다음과 같이 load_path에 경로를 추가해서 실행한다
+=> `RUBYLIB=.:./lib:./lib/x ruby test/testtask.rb`
+
+- ftools.rb
+=> https://ruby-doc.org/stdlib-1.8.6/libdoc/ftools/rdoc/File.html#method-c-copy
+=> ftools의 소스가 따로 있었다. 도중에 $deferr를 $stderr로 변경된 것 같은데 변경 후 소스를 구할 수 없어서 그냥 직접 바꿨다
+=> https://opensource.apple.com/source/ruby/ruby-22/ruby/lib/ftools.rb.auto.html
+
+- parsedate.rb
+=> https://opensource.apple.com/source/ruby/ruby-79/ruby/lib/parsedate.rb.auto.html
